@@ -1,245 +1,217 @@
-import Link from "next/link";
-import Card from "@/components/Card";
-import { CheckCircle, Users, Shield, Heart, Award } from "lucide-react";
+import { Users, Heart, Handshake, CheckCircle, Star, Gift } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Membership() {
-  const membershipTypes = [
+  const benefits = [
     {
-      name: "General Member",
       icon: Users,
-      description: "Active members who pay monthly subscriptions and participate in all activities",
-      benefits: ["Voting rights", "Meeting participation", "Annual picnic access", "Welfare support eligibility"],
+      title: 'Community Connection',
+      description: 'Join a network of like-minded individuals dedicated to improving our community.',
     },
     {
-      name: "Life Member",
-      icon: Shield,
-      description: "Members who have made a significant lifetime commitment",
-      benefits: ["All General Member benefits", "Lifetime recognition", "Special privileges"],
-    },
-    {
-      name: "Advisory Member",
-      icon: Award,
-      description: "Members who provide guidance and expertise",
-      benefits: ["Advisory role", "Meeting participation", "Event access"],
-    },
-    {
-      name: "Founding Member",
-      icon: Award,
-      description: "Original founders of HJFF",
-      benefits: ["All General Member benefits", "Founding recognition", "Special status"],
-    },
-    {
-      name: "Honorary Member",
       icon: Heart,
-      description: "Recognized for exceptional contributions",
-      benefits: ["Honorary recognition", "Event invitations", "Community appreciation"],
+      title: 'Make a Difference',
+      description: 'Your membership directly supports programs that help New Yorkers in need.',
+    },
+    {
+      icon: Handshake,
+      title: 'Exclusive Access',
+      description: 'Access to members-only events, workshops, and networking opportunities.',
+    },
+    {
+      icon: Star,
+      title: 'Leadership Opportunities',
+      description: 'Get involved in committees and take on leadership roles within the organization.',
+    },
+  ];
+
+  const membershipLevels = [
+    {
+      name: 'Individual',
+      price: '25',
+      period: 'per year',
+      features: [
+        'Voting rights at annual meetings',
+        'Access to all community events',
+        'Monthly newsletter',
+        'Discounts on workshops and seminars',
+      ],
+    },
+    {
+      name: 'Family',
+      price: '50',
+      period: 'per year',
+      features: [
+        'All Individual benefits',
+        'Membership for entire household',
+        'Priority registration for events',
+        'Family-focused programs access',
+      ],
+    },
+    {
+      name: 'Supporter',
+      price: '100',
+      period: 'per year',
+      features: [
+        'All Family benefits',
+        'Recognition in annual report',
+        'Invitation to donor appreciation events',
+        'Complimentary event tickets',
+      ],
     },
   ];
 
   return (
-    <div className="py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 md:mb-12 lg:mb-14 max-w-3xl mx-auto">
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#166534] mb-4 leading-tight">
-            Membership
-          </h1>
-          <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
-            Join HJFF and become part of a community dedicated to faith, care, and unity
+    <div>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
+        <div className="container-custom">
+          <h1 className="heading-1 text-white mb-6">Become a Member</h1>
+          <p className="text-xl text-primary-100 max-w-3xl">
+            Join Hollis Jamaica Friends and Family Inc. and become part of a community dedicated to making a positive impact in New York.
           </p>
         </div>
+      </section>
 
-        {/* Eligibility */}
-        <section className="mb-12 md:mb-16">
-          <Card variant="elevated" className="bg-gradient-to-br from-[#BBF7D0] to-white">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-4">
-              Eligibility
-            </h2>
-            <p className="text-base md:text-lg text-[#6B7280] mb-4 leading-relaxed">
-              HJFF membership is open to Hollis & Jamaica residents, inclusive of all backgrounds. 
-              We welcome individuals and families who share our commitment to community service 
-              and mutual support.
+      {/* Why Join Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <h2 className="heading-2 mb-6">Why Become a Member?</h2>
+            <p className="text-body text-lg">
+              Membership in HJFF Inc. means joining a community of individuals who are committed to creating positive change. Your membership supports our programs and gives you opportunities to get directly involved in our mission.
             </p>
-          </Card>
-        </section>
-
-        {/* Membership Types */}
-        <section className="mb-12 md:mb-16">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-8 text-center">
-            Types of Membership
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {membershipTypes.map((type, index) => {
-              const Icon = type.icon;
-              return (
-                <Card key={index} variant="elevated" hover>
-                  <div className="w-16 h-16 bg-[#166534] rounded-2xl flex items-center justify-center mb-6">
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-heading text-xl font-semibold text-[#166534] mb-3">
-                    {type.name}
-                  </h3>
-                  <p className="text-sm md:text-base text-[#6B7280] mb-4 leading-relaxed">
-                    {type.description}
-                  </p>
-                  <div>
-                    <h4 className="font-semibold text-[#166534] mb-2 text-sm">Benefits:</h4>
-                    <ul className="space-y-2">
-                      {type.benefits.map((benefit, i) => (
-                        <li key={i} className="flex items-start text-sm text-[#6B7280]">
-                          <CheckCircle className="w-4 h-4 text-[#166534] mr-2 mt-0.5 flex-shrink-0" />
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              );
-            })}
           </div>
-        </section>
 
-        {/* Benefits Section */}
-        <section className="mb-12 md:mb-16">
-          <Card variant="elevated">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-6">
-              Membership Benefits
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-[#166534] mr-4 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-[#166534] mb-2 text-lg">Voting Rights</h3>
-                  <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
-                    Active members have the right to vote on important organizational matters, 
-                    including board elections and policy changes.
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit) => (
+              <div
+                key={benefit.title}
+                className="text-center p-6 rounded-xl bg-neutral-50 hover:bg-primary-50 transition-colors duration-200"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4">
+                  <benefit.icon className="w-8 h-8 text-primary-600" />
                 </div>
+                <h3 className="heading-3 text-xl mb-3">{benefit.title}</h3>
+                <p className="text-neutral-600">{benefit.description}</p>
               </div>
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-[#166534] mr-4 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-[#166534] mb-2 text-lg">Welfare Program Participation</h3>
-                  <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
-                    Access to our comprehensive welfare and bereavement support system, ensuring 
-                    your family is never alone in times of need.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-[#166534] mr-4 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-[#166534] mb-2 text-lg">Events & Activities</h3>
-                  <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
-                    Participate in our annual picnic, community events, educational programs, 
-                    and social gatherings.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-[#166534] mr-4 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-[#166534] mb-2 text-lg">Community Support</h3>
-                  <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
-                    Receive support during funerals, community assistance, and access to 
-                    educational and cultural programs.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </section>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* How to Join */}
-        <section className="mb-12 md:mb-16">
-          <Card variant="elevated" className="bg-gradient-to-br from-[#166534] to-[#15803D] text-white">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">
-              How to Join
-            </h2>
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 font-bold">
+      {/* Membership Levels */}
+      <section className="section-padding bg-neutral-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-2 mb-6">Membership Levels</h2>
+            <p className="text-body text-lg max-w-2xl mx-auto">
+              Choose the membership level that works best for you. All memberships are annual and help support our community programs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {membershipLevels.map((level) => (
+              <div
+                key={level.name}
+                className="bg-white rounded-xl shadow-md border border-neutral-200 p-8 flex flex-col"
+              >
+                <h3 className="heading-3 text-2xl mb-4">{level.name}</h3>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-primary-600">${level.price}</span>
+                  <span className="text-neutral-600 ml-2">{level.period}</span>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {level.features.map((feature, index) => (
+                    <li key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-neutral-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="btn-primary text-center block"
+                >
+                  Join Now
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How to Join */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="heading-2 mb-8 text-center">How to Join</h2>
+            
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
                   1
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-lg">Complete Membership Form</h3>
-                  <p className="text-gray-100 text-sm md:text-base">
-                    Fill out our online membership application form
+                  <h3 className="heading-3 text-xl mb-2">Contact Us</h3>
+                  <p className="text-body">
+                    Reach out to us through our contact form, email, or phone to express your interest in becoming a member.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 font-bold">
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
                   2
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-lg">Payment Methods</h3>
-                  <p className="text-gray-100 text-sm md:text-base">
-                    Pay monthly subscription via Zelle, card, or other accepted methods
+                  <h3 className="heading-3 text-xl mb-2">Choose Your Level</h3>
+                  <p className="text-body">
+                    Select the membership level that best fits your needs and budget. Our team can help you decide if you're unsure.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 font-bold">
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
                   3
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-lg">Welcome & Orientation</h3>
-                  <p className="text-gray-100 text-sm md:text-base">
-                    Receive welcome package and orientation to HJFF programs and benefits
+                  <h3 className="heading-3 text-xl mb-2">Complete Registration</h3>
+                  <p className="text-body">
+                    Fill out our membership application and submit your membership fee. You'll receive a welcome packet and membership card.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
+                  4
+                </div>
+                <div>
+                  <h3 className="heading-3 text-xl mb-2">Get Involved</h3>
+                  <p className="text-body">
+                    Start attending events, join committees, and make a difference in your community!
                   </p>
                 </div>
               </div>
             </div>
-            <Link
-              href="/resources/forms"
-              className="inline-flex items-center px-8 py-4 bg-[#F59E0B] text-[#111827] rounded-lg hover:bg-[#D97706] transition-all duration-200 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              Join Now
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </Card>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        {/* FAQ */}
-        <section>
-          <Card variant="elevated">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-6">
-              Membership FAQ
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-[#166534] mb-2 text-lg">
-                  Can my spouse/children continue after my death?
-                </h3>
-                <p className="text-base text-[#6B7280] leading-relaxed">
-                  <strong className="text-[#166534]">YES!</strong> Spouses and children can continue 
-                  as continuity members, maintaining access to welfare support and community benefits.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-[#166534] mb-2 text-lg">
-                  What are the monthly subscription requirements?
-                </h3>
-                <p className="text-base text-[#6B7280] leading-relaxed">
-                  General members maintain active status through monthly subscription payments. 
-                  Contact us for current rates and payment options.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-[#166534] mb-2 text-lg">
-                  How do I maintain active membership?
-                </h3>
-                <p className="text-base text-[#6B7280] leading-relaxed">
-                  Active membership requires timely payment of monthly subscriptions and participation 
-                  in community obligations, including funeral attendance when possible.
-                </p>
-              </div>
-            </div>
-          </Card>
-        </section>
-      </div>
+      {/* CTA Section */}
+      <section className="section-padding bg-primary-600 text-white">
+        <div className="container-custom text-center">
+          <h2 className="heading-2 text-white mb-6">Ready to Join Us?</h2>
+          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            Become a member today and help us build stronger, more empowered communities in New York.
+          </p>
+          <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
+            Become a Member
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

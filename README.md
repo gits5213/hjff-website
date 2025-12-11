@@ -1,38 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hollis Jamaica Friends and Family Inc. Website
+
+A modern, accessible website for Hollis Jamaica Friends and Family Inc., a charitable nonprofit organization dedicated to raising awareness about safety, social, and constitutional rights while improving quality of life in New York.
+
+## Technology Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Fonts**: Inter (body) & Playfair Display (headings)
+
+## Design System
+
+### Colors
+- **Primary**: Blue (#0ea5e9 to #0c4a6e) - Trust, professionalism, community
+- **Accent**: Yellow (#facc15 to #713f12) - Energy, positivity, hope
+- **Neutral**: Gray scale - Clean, modern foundation
+
+### Typography
+- **Display Font**: Playfair Display (headings) - Elegant, trustworthy
+- **Body Font**: Inter (body text) - Clean, readable, modern
+
+### Design Principles
+- Clean, modern, and professional
+- Accessible and user-friendly
+- Responsive across all devices
+- Focused on community engagement
+
+## Pages
+
+### Main Pages
+- **Home** (`/`) - Hero section, mission, core values, programs overview
+- **About** (`/about`) - Organization story, mission, values, leadership
+- **Programs** (`/programs`) - Overview of all programs
+  - Community Support (`/programs/community`)
+  - Job Training (`/programs/job-training`)
+  - Educational Seminars (`/programs/education`)
+  - Social Services (`/programs/social-services`)
+- **Events** (`/events`) - Upcoming and past community events
+- **Membership** (`/membership`) - Membership benefits and levels
+- **Contact** (`/contact`) - Contact form and information
+
+### Legal Pages
+- **Privacy Policy** (`/legal/privacy`)
+- **Terms of Service** (`/legal/terms`)
+- **Accessibility Statement** (`/legal/accessibility`)
 
 ## Getting Started
 
-First, install dependencies:
+### Prerequisites
+- Node.js 18+ and npm
 
+### Installation
+
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-Then, run the development server:
-
+2. Run the development server:
 ```bash
 npm run dev
 ```
 
-The server will start on [http://localhost:3000](http://localhost:3000) by default.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build for Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+hjff-website/
+├── app/                    # Next.js app directory
+│   ├── about/             # About page
+│   ├── contact/           # Contact page
+│   ├── events/            # Events page
+│   ├── legal/             # Legal pages
+│   ├── membership/        # Membership page
+│   ├── programs/          # Programs pages
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # Reusable components
+│   ├── Footer.tsx        # Site footer
+│   └── Header.tsx        # Site header with navigation
+├── public/               # Static assets
+└── package.json          # Dependencies and scripts
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ✅ Fully responsive design
+- ✅ Accessible (WCAG 2.1 Level AA compliant)
+- ✅ Modern UI with smooth animations
+- ✅ SEO optimized
+- ✅ Contact form
+- ✅ Legal pages (Privacy, Terms, Accessibility)
+- ✅ Multi-level navigation with dropdown menus
+- ✅ Mobile-friendly navigation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+### Update Contact Information
+Edit contact details in:
+- `components/Footer.tsx`
+- `app/contact/page.tsx`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Update Colors
+Modify the color palette in `tailwind.config.ts`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Update Content
+All page content can be edited in their respective files in the `app/` directory.
+
+## License
+
+This project is proprietary and belongs to Hollis Jamaica Friends and Family Inc.
+
+## Support
+
+For questions or support, please contact:
+- Email: info@hjffinc.org
+- Phone: (212) 555-1234

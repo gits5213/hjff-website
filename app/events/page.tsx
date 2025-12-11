@@ -1,89 +1,164 @@
-import Link from "next/link";
-import EventCard from "@/components/EventCard";
+import { Calendar, MapPin, Clock, Users } from 'lucide-react';
+import Link from 'next/link';
+
+const upcomingEvents = [
+  {
+    title: 'Community Safety Workshop',
+    date: '2024-12-20',
+    time: '6:00 PM - 8:00 PM',
+    location: 'Community Center, Queens, NY',
+    description: 'Learn about personal safety, emergency preparedness, and community resources.',
+    category: 'Education',
+  },
+  {
+    title: 'Constitutional Rights Seminar',
+    date: '2024-12-27',
+    time: '2:00 PM - 4:00 PM',
+    location: 'Virtual Event',
+    description: 'Understanding your fundamental rights and how to protect them.',
+    category: 'Education',
+  },
+  {
+    title: 'New Year Community Celebration',
+    date: '2025-01-05',
+    time: '5:00 PM - 9:00 PM',
+    location: 'Hollis Community Center',
+    description: 'Join us for a multicultural celebration to welcome the new year together.',
+    category: 'Community',
+  },
+  {
+    title: 'Job Fair & Career Resources',
+    date: '2025-01-15',
+    time: '10:00 AM - 2:00 PM',
+    location: 'Queens Library - Hollis Branch',
+    description: 'Connect with employers and access career development resources.',
+    category: 'Job Training',
+  },
+];
+
+const pastEvents = [
+  {
+    title: 'Fall Community Picnic',
+    date: '2024-10-12',
+    description: 'A successful community gathering celebrating unity and diversity.',
+  },
+  {
+    title: 'Back to School Resources Fair',
+    date: '2024-09-08',
+    description: 'Providing families with school supplies and educational resources.',
+  },
+];
 
 export default function Events() {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      month: 'long', 
+      day: 'numeric', 
+      year: 'numeric' 
+    });
+  };
+
+  const getCategoryColor = (category: string) => {
+    const colors: { [key: string]: string } = {
+      'Education': 'bg-primary-100 text-primary-700',
+      'Community': 'bg-accent-100 text-accent-700',
+      'Job Training': 'bg-green-100 text-green-700',
+    };
+    return colors[category] || 'bg-neutral-100 text-neutral-700';
+  };
+
   return (
-    <div className="py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 md:mb-12 lg:mb-14 max-w-3xl mx-auto">
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#166534] mb-4 leading-tight">
-            Events & Activities
-          </h1>
-          <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
-            Join us for community gatherings, educational programs, and special celebrations
+    <div>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
+        <div className="container-custom">
+          <h1 className="heading-1 text-white mb-6">Events</h1>
+          <p className="text-xl text-primary-100 max-w-3xl">
+            Join us for multicultural events, educational seminars, and community gatherings throughout the year.
           </p>
         </div>
+      </section>
 
-        {/* Featured Event - Annual Picnic */}
-        <section className="mb-12 md:mb-16">
-          <EventCard
-            title="HJFF Annual Family Picnic"
-            date="Summer 2025"
-            location="Queens, NY"
-            description="Our biggest event of the year! Join us for a day of family fun, community fellowship, kids activities, sports competitions, delicious BBQ, nasheed performances, and inspiring speeches. All members and their families are encouraged to attend this celebration of our community spirit."
-            href="/events/annual-picnic"
-            featured
-          />
-        </section>
-
-        {/* Other Events */}
-        <section>
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-8 text-center">
-            Upcoming Events
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <EventCard
-              title="General Membership Meeting"
-              date="First Saturday of Each Month"
-              location="Queens, NY"
-              description="Regular monthly meetings for all members to discuss community matters, vote on important decisions, review financial reports, and stay connected with leadership and fellow members."
-              href="/events/calendar"
-            />
-            <EventCard
-              title="Community Fundraiser"
-              date="Spring 2025"
-              location="Queens, NY"
-              description="Join us for our annual community fundraiser supporting our welfare fund and charitable initiatives. Enjoy food, entertainment, and community fellowship while contributing to important causes."
-              href="/events/calendar"
-            />
-            <EventCard
-              title="Memorial & Dua Night"
-              date="Quarterly"
-              location="Queens, NY"
-              description="A special evening of remembrance, prayer, and community support for families who have lost loved ones. Open to all members and their families."
-              href="/events/calendar"
-            />
-            <EventCard
-              title="Youth Educational Program"
-              date="Monthly"
-              location="Queens, NY"
-              description="Educational programs designed for our youth members, focusing on community values, leadership development, and cultural awareness."
-              href="/events/calendar"
-            />
+      {/* Upcoming Events */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <h2 className="heading-2 mb-12">Upcoming Events</h2>
+          
+          <div className="space-y-8">
+            {upcomingEvents.map((event, index) => (
+              <div
+                key={index}
+                className="border border-neutral-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-200"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(event.category)}`}>
+                        {event.category}
+                      </span>
+                    </div>
+                    <h3 className="heading-3 text-2xl mb-4">{event.title}</h3>
+                    <p className="text-body mb-6">{event.description}</p>
+                    <div className="flex flex-wrap gap-6 text-neutral-600">
+                      <div className="flex items-center space-x-2">
+                        <Calendar className="w-5 h-5 text-primary-600" />
+                        <span>{formatDate(event.date)}</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-5 h-5 text-primary-600" />
+                        <span>{event.time}</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <MapPin className="w-5 h-5 text-primary-600" />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="lg:ml-8">
+                    <Link href="/contact" className="btn-primary whitespace-nowrap">
+                      Register
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* View Calendar CTA */}
-        <section className="mt-12 md:mt-16">
-          <div className="bg-gradient-to-br from-[#166534] to-[#15803D] rounded-2xl p-8 md:p-12 text-white text-center">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4">
-              View Full Event Calendar
-            </h2>
-            <p className="mb-6 text-gray-100 text-base md:text-lg">
-              See all upcoming events, meetings, and activities in one place.
-            </p>
-            <Link
-              href="/events/calendar"
-              className="inline-flex items-center px-8 py-4 bg-[#F59E0B] text-[#111827] rounded-lg hover:bg-[#D97706] transition-all duration-200 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              View Calendar
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+      {/* Past Events */}
+      <section className="section-padding bg-neutral-50">
+        <div className="container-custom">
+          <h2 className="heading-2 mb-12">Past Events</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {pastEvents.map((event, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl border border-neutral-200"
+              >
+                <div className="text-sm text-neutral-500 mb-2">{formatDate(event.date)}</div>
+                <h3 className="heading-3 text-xl mb-3">{event.title}</h3>
+                <p className="text-neutral-700">{event.description}</p>
+              </div>
+            ))}
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-primary-600 text-white">
+        <div className="container-custom text-center">
+          <h2 className="heading-2 text-white mb-6">Stay Updated</h2>
+          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            Want to be notified about upcoming events? Contact us to join our mailing list or follow us on social media.
+          </p>
+          <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
+            Get In Touch
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,135 +1,191 @@
-import Card from "@/components/Card";
-import { Heart, Users, Award } from "lucide-react";
+import { Shield, Users, Heart, Target, Award, Handshake } from 'lucide-react';
+import Link from 'next/link';
 
 export default function About() {
+  const values = [
+    {
+      icon: Shield,
+      title: 'Integrity',
+      description: 'We operate with transparency, honesty, and accountability in all our endeavors.',
+    },
+    {
+      icon: Heart,
+      title: 'Compassion',
+      description: 'We care deeply about the well-being of every community member we serve.',
+    },
+    {
+      icon: Users,
+      title: 'Inclusion',
+      description: 'We welcome and celebrate diversity, ensuring everyone has a voice.',
+    },
+    {
+      icon: Handshake,
+      title: 'Collaboration',
+      description: 'We believe in the power of working together with government, community partners, and residents.',
+    },
+  ];
+
+  const achievements = [
+    {
+      number: '500+',
+      label: 'Community Members Served',
+    },
+    {
+      number: '50+',
+      label: 'Events Hosted',
+    },
+    {
+      number: '20+',
+      label: 'Programs Launched',
+    },
+    {
+      number: '15+',
+      label: 'Partnerships Formed',
+    },
+  ];
+
   return (
-    <div className="py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 md:mb-12 lg:mb-14 max-w-3xl mx-auto">
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#166534] mb-4 leading-tight">
-            About HJFF
-          </h1>
-          <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
-            Learn about our mission, history, and the dedicated leaders who guide our community
+    <div>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
+        <div className="container-custom">
+          <h1 className="heading-1 text-white mb-6">About Us</h1>
+          <p className="text-xl text-primary-100 max-w-3xl">
+            Learn more about Hollis Jamaica Friends and Family Inc. and our commitment to building stronger, more empowered communities.
           </p>
         </div>
+      </section>
 
-        {/* Story */}
-        <section className="mb-12 md:mb-16">
-          <Card variant="elevated">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-6">
-              Our Story
-            </h2>
-            <div className="space-y-4 text-[#6B7280]">
-              <p className="text-base md:text-lg leading-relaxed">
-                Hollis Jamaica Friends & Family Inc. (HJFF) was founded by a group of dedicated 
-                community members who recognized the need for a formal organization to support 
-                families and strengthen community ties in the Hollis & Jamaica area.
-              </p>
-              <p className="text-base md:text-lg leading-relaxed">
-                Over the years, we have grown from a small group of friends and family to a 
-                comprehensive organization with structured governance, active committees, and 
-                programs that serve hundreds of members and their families.
-              </p>
-            </div>
-          </Card>
-        </section>
-
-        {/* Mission & Purpose */}
-        <section className="mb-12 md:mb-16">
-          <Card variant="elevated">
-            <div className="flex items-start mb-6">
-              <Heart className="w-8 h-8 text-[#166534] mr-4 flex-shrink-0" />
-              <div className="flex-1">
-                <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-4">
-                  Mission & Purpose
-                </h2>
-                <p className="text-base md:text-lg text-[#6B7280] mb-4 leading-relaxed">
-                  Hollis Jamaica Friends & Family Inc. is a 501(c)(3) non-profit organization 
-                  dedicated to serving our community through faith, care, and unity.
+      {/* Story Section */}
+      <section id="mission" className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-12">
+              <h2 className="heading-2 mb-6">Our Story</h2>
+              <div className="space-y-4 text-body">
+                <p>
+                  Hollis Jamaica Friends and Family Inc. was founded with a clear vision: to create a nonprofit organization that would serve as a bridge between the community and the resources, rights, and opportunities they deserve. Our organization was born from a recognition that many community members needed better access to information about their rights, safety resources, and support systems.
                 </p>
-                <p className="text-base md:text-lg text-[#6B7280] mb-4 leading-relaxed">
-                  Our mission is to strengthen community bonds, provide charitable support, and 
-                  ensure no family faces hardship alone.
+                <p>
+                  What started as a grassroots initiative has grown into a recognized charitable organization that collaborates with government agencies, community leaders, and residents to address pressing community concerns. We believe that informed, empowered communities are the foundation of a thriving society.
                 </p>
-                <div>
-                  <h3 className="font-semibold text-[#166534] mb-3 text-lg">We achieve this through:</h3>
-                  <ul className="list-disc list-inside space-y-2 text-base text-[#6B7280] ml-4">
-                    <li>Organizing charitable and social initiatives</li>
-                    <li>Hosting multicultural events and educational programs</li>
-                    <li>Providing comprehensive welfare and bereavement support</li>
-                    <li>Fostering unity and fellowship among members</li>
-                    <li>Supporting youth development and education</li>
-                  </ul>
-                </div>
               </div>
             </div>
-          </Card>
-        </section>
 
-        {/* Logo & Slogan */}
-        <section className="mb-12 md:mb-16">
-          <Card variant="elevated" className="bg-gradient-to-br from-[#BBF7D0] to-white">
-            <div className="text-center">
-              <div className="flex flex-col items-center space-y-2 mb-6">
-                <div className="w-16 h-1 bg-[#166534] rounded-full"></div>
-                <div className="w-16 h-1 bg-[#166534] rounded-full"></div>
-                <div className="w-16 h-1 bg-[#166534] rounded-full"></div>
+            <div className="mb-12">
+              <h2 className="heading-2 mb-6">Our Mission</h2>
+              <div className="space-y-4 text-body">
+                <p>
+                  Our mission is threefold:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-body ml-4">
+                  <li><strong>Raise Awareness:</strong> We educate community members about their safety, social, and constitutional rights, ensuring everyone knows how to protect themselves and advocate for their interests.</li>
+                  <li><strong>Foster Collaboration:</strong> We work directly with government agencies and officials to address community concerns, serving as a voice for residents and facilitating productive dialogue.</li>
+                  <li><strong>Improve Quality of Life:</strong> Through our comprehensive programs—including multicultural events, educational seminars, job training, and social services—we provide tangible support that enhances the daily lives of New Yorkers.</li>
+                </ul>
               </div>
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-4">
-                Our Logo & Slogan
-              </h2>
-              <p className="text-base md:text-lg text-[#6B7280] mb-4 leading-relaxed max-w-2xl mx-auto">
-                The three wavy lines in our logo represent unity, strength, and community bonds. 
-                They symbolize how individual members come together to form a stronger whole.
-              </p>
-              <p className="text-xl md:text-2xl font-bold text-[#166534]">
-                ONE TEAM ONE DREAM
-              </p>
-              <p className="text-sm md:text-base text-[#6B7280] mt-2">
-                Our motto reflects our commitment to standing together as one community, 
-                supporting each other through all of life's moments.
+            </div>
+
+            <div>
+              <h2 className="heading-2 mb-6">Our Vision</h2>
+              <p className="text-body">
+                We envision a New York where every community member is informed, empowered, and connected. A place where rights are understood, voices are heard, and opportunities are accessible to all. Through our work, we strive to build resilient communities that support one another and thrive together.
               </p>
             </div>
-          </Card>
-        </section>
-
-        {/* Timeline */}
-        <section>
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#166534] mb-8 text-center">
-            Key Milestones
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <Card variant="outlined" className="text-center">
-              <Award className="w-12 h-12 text-[#166534] mx-auto mb-4" />
-              <h3 className="font-heading text-lg font-semibold text-[#166534] mb-2">
-                Founding
-              </h3>
-              <p className="text-sm text-[#6B7280]">
-                Established by dedicated community members committed to serving families
-              </p>
-            </Card>
-            <Card variant="outlined" className="text-center">
-              <Users className="w-12 h-12 text-[#166534] mx-auto mb-4" />
-              <h3 className="font-heading text-lg font-semibold text-[#166534] mb-2">
-                Growth
-              </h3>
-              <p className="text-sm text-[#6B7280]">
-                Expanded to serve hundreds of members with comprehensive programs
-              </p>
-            </Card>
-            <Card variant="outlined" className="text-center">
-              <Heart className="w-12 h-12 text-[#166534] mx-auto mb-4" />
-              <h3 className="font-heading text-lg font-semibold text-[#166534] mb-2">
-                Today
-              </h3>
-              <p className="text-sm text-[#6B7280]">
-                Continuing to strengthen community bonds and support families
-              </p>
-            </Card>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="section-padding bg-neutral-50">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="heading-2 mb-6">Our Values</h2>
+            <p className="text-body text-lg">
+              These core values guide everything we do and shape how we interact with our community.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value) => (
+              <div
+                key={value.title}
+                className="bg-white p-6 rounded-xl shadow-md text-center"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4">
+                  <value.icon className="w-8 h-8 text-primary-600" />
+                </div>
+                <h3 className="heading-3 text-xl mb-3">{value.title}</h3>
+                <p className="text-neutral-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="section-padding bg-primary-600 text-white">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-2 text-white mb-4">Our Impact</h2>
+            <p className="text-xl text-primary-100">
+              Numbers that reflect our commitment to the community
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {achievements.map((achievement) => (
+              <div key={achievement.label} className="text-center">
+                <div className="text-4xl md:text-5xl font-bold mb-2">{achievement.number}</div>
+                <div className="text-primary-200">{achievement.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
+      <section id="leadership" className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="heading-2 mb-6">Our Leadership</h2>
+            <p className="text-body text-lg">
+              Our dedicated team of leaders works tirelessly to advance our mission and serve the community.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-neutral-50 p-8 rounded-xl">
+              <p className="text-body text-center">
+                Our leadership team is composed of passionate community advocates, experienced professionals, and dedicated volunteers who bring diverse expertise and shared commitment to our organization's mission. We are currently building out our leadership page with detailed profiles of our board members and key team members.
+              </p>
+              <div className="text-center mt-6">
+                <Link href="/contact" className="btn-primary">
+                  Contact Our Leadership
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-neutral-50">
+        <div className="container-custom text-center">
+          <h2 className="heading-2 mb-6">Get Involved</h2>
+          <p className="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
+            Ready to make a difference? Join us in building stronger communities.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/membership" className="btn-primary">
+              Become a Member
+            </Link>
+            <Link href="/contact" className="btn-secondary">
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const playfair = Playfair_Display({
-  variable: "--font-heading",
+const inter = Inter({ 
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
 });
 
-const inter = Inter({
-  variable: "--font-body",
+const playfair = Playfair_Display({ 
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {
-  title: "Hollis Jamaica Friends & Family Inc. | One Team, One Dream",
-  description: "Serving our community in faith, care & unity. Join HJFF for membership, welfare support, life insurance, and community events.",
+  title: "Hollis Jamaica Friends and Family Inc. | Nonprofit Organization in New York",
+  description: "Hollis Jamaica Friends and Family Inc. is a charitable nonprofit organization raising awareness about safety, social, and constitutional rights while supporting programs that improve quality of life in New York.",
+  keywords: "nonprofit, New York, Jamaica, community, safety, social rights, constitutional rights, education, job training, multicultural events",
 };
 
 export default function RootLayout({
@@ -27,13 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="overflow-x-hidden">
-      <body
-        className={`${playfair.variable} ${inter.variable} antialiased overflow-x-hidden`}
-      >
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body>
         <Header />
-        <main className="min-h-screen w-full">
-        {children}
+        <main className="min-h-screen">
+          {children}
         </main>
         <Footer />
       </body>

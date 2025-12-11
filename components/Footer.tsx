@@ -1,96 +1,138 @@
-import Link from "next/link";
-import { Facebook, MessageCircle } from "lucide-react";
+import Link from 'next/link';
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+
+const footerLinks = {
+  organization: [
+    { name: 'About Us', href: '/about' },
+    { name: 'Our Mission', href: '/about#mission' },
+    { name: 'Leadership', href: '/about#leadership' },
+    { name: 'Contact', href: '/contact' },
+  ],
+  programs: [
+    { name: 'Community Support', href: '/programs/community' },
+    { name: 'Job Training', href: '/programs/job-training' },
+    { name: 'Educational Seminars', href: '/programs/education' },
+    { name: 'Social Services', href: '/programs/social-services' },
+  ],
+  legal: [
+    { name: 'Privacy Policy', href: '/legal/privacy' },
+    { name: 'Terms of Service', href: '/legal/terms' },
+    { name: 'Accessibility', href: '/legal/accessibility' },
+  ],
+};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#111827] text-white mt-16 md:mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          {/* About */}
+    <footer className="bg-neutral-900 text-neutral-300">
+      <div className="container-custom section-padding">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Organization Info */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-4">About</h3>
-            <p className="text-sm text-gray-300 leading-relaxed mb-4">
-              A community-based 501(c)(3) organization serving Hollis & Jamaica residents through 
-              social, cultural, educational and welfare services.
+            <h3 className="font-display text-2xl font-bold text-white mb-4">
+              HJFF Inc.
+            </h3>
+            <p className="text-neutral-400 mb-4">
+              Hollis Jamaica Friends and Family Inc. is a charitable nonprofit organization dedicated to improving lives in New York.
             </p>
-            <p className="text-[#F59E0B] font-semibold text-sm">ONE TEAM ONE DREAM</p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-neutral-400 hover:text-primary-400 transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-neutral-400 hover:text-primary-400 transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-neutral-400 hover:text-primary-400 transition-colors" aria-label="Twitter">
+                <Twitter className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-4">Quick Links</h3>
+            <h4 className="font-semibold text-white mb-4">Organization</h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/governance/bylaws" className="text-sm text-gray-300 hover:text-[#BBF7D0] transition-colors">
-                  Constitution & Bylaws
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs/welfare" className="text-sm text-gray-300 hover:text-[#BBF7D0] transition-colors">
-                  Welfare & Bereavement Program
-                </Link>
-              </li>
-              <li>
-                <Link href="/membership" className="text-sm text-gray-300 hover:text-[#BBF7D0] transition-colors">
-                  Membership
-                </Link>
-              </li>
-              <li>
-                <Link href="/events/annual-picnic" className="text-sm text-gray-300 hover:text-[#BBF7D0] transition-colors">
-                  Annual Picnic
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm text-gray-300 hover:text-[#BBF7D0] transition-colors">
-                  Contact
-                </Link>
-              </li>
+              {footerLinks.organization.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-neutral-400 hover:text-primary-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Programs */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-4">Contact</h3>
-            <div className="space-y-3 text-sm text-gray-300">
-              <p>Queens, NY</p>
-              <p>
-                <a href="mailto:info@hjff.org" className="hover:text-[#BBF7D0] transition-colors">
-                  info@hjff.org
-                </a>
-              </p>
-              <p>
-                <a href="tel:+1234567890" className="hover:text-[#BBF7D0] transition-colors">
-                  (123) 456-7890
-                </a>
-              </p>
-              <div className="flex space-x-4 pt-2">
-                <a href="#" className="text-gray-300 hover:text-[#BBF7D0] transition-colors" aria-label="Facebook">
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-[#BBF7D0] transition-colors" aria-label="WhatsApp">
-                  <MessageCircle className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
+            <h4 className="font-semibold text-white mb-4">Programs</h4>
+            <ul className="space-y-2">
+              {footerLinks.programs.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-neutral-400 hover:text-primary-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Legal & Info */}
+          {/* Contact Info */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-4">Legal & Info</h3>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>501(c)(3) Non-Profit Organization</p>
-              <p className="text-xs text-gray-400 mt-4">
-                Designed for community, by community.
-              </p>
-            </div>
+            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span className="text-neutral-400">
+                  New York, NY
+                </span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Mail className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                <a
+                  href="mailto:info@hjffinc.org"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors"
+                >
+                  info@hjffinc.org
+                </a>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-primary-400 flex-shrink-0" />
+                <a
+                  href="tel:+12125551234"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors"
+                >
+                  (212) 555-1234
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-400">
-          <p>© {currentYear} Hollis Jamaica Friends & Family Inc. | ONE TEAM ONE DREAM</p>
+        <div className="border-t border-neutral-800 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-neutral-400 text-sm">
+              © {currentYear} Hollis Jamaica Friends and Family Inc. All rights reserved.
+            </p>
+            <div className="flex space-x-6">
+              {footerLinks.legal.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-neutral-400 hover:text-primary-400 text-sm transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </footer>
