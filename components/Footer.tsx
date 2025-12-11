@@ -27,7 +27,7 @@ export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-neutral-300">
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Organization Info */}
           <div>
             <h3 className="font-display text-2xl font-bold text-white mb-4">
@@ -83,6 +83,29 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Get Involved */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Get Involved</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/membership"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors"
+                >
+                  Become a Member
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/donate"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors"
+                >
+                  Donate
+                </Link>
+              </li>
             </ul>
           </div>
 
