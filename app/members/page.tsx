@@ -69,6 +69,7 @@ const membershipTypeColors = {
 
 export default function Members() {
   const [showMembersTable, setShowMembersTable] = useState(false);
+  const [filterType, setFilterType] = useState<'All' | 'Life' | 'Founding' | 'Honorary'>('All');
   
   const activeMembers = sampleMembers.filter((member) => member.active);
   
@@ -80,6 +81,19 @@ export default function Members() {
     acc[member.membershipType].push(member);
     return acc;
   }, {} as Record<string, Member[]>);
+
+  // Filter members based on selected type
+  const getFilteredMembers = () => {
+    if (filterType === 'All') return activeMembers;
+    return activeMembers.filter((member) => member.membershipType === filterType);
+  };
+
+  const filteredMembers = getFilteredMembers();
+
+  const openMembersTable = (type: 'All' | 'Life' | 'Founding' | 'Honorary') => {
+    setFilterType(type);
+    setShowMembersTable(true);
+  };
 
   return (
     <div>
@@ -98,7 +112,7 @@ export default function Members() {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <button
-              onClick={() => setShowMembersTable(!showMembersTable)}
+              onClick={() => openMembersTable('All')}
               className="text-center p-6 bg-neutral-50 rounded-xl hover:bg-primary-50 transition-colors duration-200 cursor-pointer border-2 border-transparent hover:border-primary-200"
             >
               <Users className="w-12 h-12 text-primary-600 mx-auto mb-3" />
@@ -106,27 +120,39 @@ export default function Members() {
               <div className="text-neutral-600">Total Active</div>
               <div className="text-xs text-primary-600 mt-2">Click to view details</div>
             </button>
-            <div className="text-center p-6 bg-neutral-50 rounded-xl">
+            <button
+              onClick={() => openMembersTable('Life')}
+              className="text-center p-6 bg-neutral-50 rounded-xl hover:bg-green-50 transition-colors duration-200 cursor-pointer border-2 border-transparent hover:border-green-200"
+            >
               <Award className="w-12 h-12 text-green-600 mx-auto mb-3" />
               <div className="text-3xl font-bold text-neutral-900 mb-1">
                 {membersByType['Life']?.length || 0}
               </div>
               <div className="text-neutral-600">Life Members</div>
-            </div>
-            <div className="text-center p-6 bg-neutral-50 rounded-xl">
+              <div className="text-xs text-green-600 mt-2">Click to view details</div>
+            </button>
+            <button
+              onClick={() => openMembersTable('Founding')}
+              className="text-center p-6 bg-neutral-50 rounded-xl hover:bg-purple-50 transition-colors duration-200 cursor-pointer border-2 border-transparent hover:border-purple-200"
+            >
               <Star className="w-12 h-12 text-purple-600 mx-auto mb-3" />
               <div className="text-3xl font-bold text-neutral-900 mb-1">
                 {membersByType['Founding']?.length || 0}
               </div>
               <div className="text-neutral-600">Founding</div>
-            </div>
-            <div className="text-center p-6 bg-neutral-50 rounded-xl">
+              <div className="text-xs text-purple-600 mt-2">Click to view details</div>
+            </button>
+            <button
+              onClick={() => openMembersTable('Honorary')}
+              className="text-center p-6 bg-neutral-50 rounded-xl hover:bg-yellow-50 transition-colors duration-200 cursor-pointer border-2 border-transparent hover:border-yellow-200"
+            >
               <Heart className="w-12 h-12 text-yellow-600 mx-auto mb-3" />
               <div className="text-3xl font-bold text-neutral-900 mb-1">
                 {membersByType['Honorary']?.length || 0}
               </div>
               <div className="text-neutral-600">Honorary</div>
-            </div>
+              <div className="text-xs text-yellow-600 mt-2">Click to view details</div>
+            </button>
           </div>
         </div>
       </section>
@@ -144,8 +170,15 @@ export default function Members() {
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-neutral-200">
               <div>
-                <h2 className="heading-2">Active Members Contact Information</h2>
-                <p className="text-neutral-600 mt-1">Total: {activeMembers.length} members</p>
+                <h2 className="heading-2">
+                  {filterType === 'All' 
+                    ? 'Active Members Contact Information' 
+                    : `${filterType} Members Contact Information`}
+                </h2>
+                <p className="text-neutral-600 mt-1">
+                  Showing: {filteredMembers.length} {filteredMembers.length === 1 ? 'member' : 'members'}
+                  {filterType !== 'All' && ` (of ${activeMembers.length} total)`}
+                </p>
               </div>
               <button
                 onClick={() => setShowMembersTable(false)}
@@ -158,10 +191,14 @@ export default function Members() {
 
             {/* Table */}
             <div className="overflow-auto flex-1">
-              {activeMembers.length === 0 ? (
+              {filteredMembers.length === 0 ? (
                 <div className="p-12 text-center">
                   <Users className="w-16 h-16 text-neutral-400 mx-auto mb-4" />
-                  <p className="text-neutral-600">No active members yet.</p>
+                  <p className="text-neutral-600">
+                    {filterType === 'All' 
+                      ? 'No active members yet.' 
+                      : `No ${filterType} members found.`}
+                  </p>
                 </div>
               ) : (
                 <table className="w-full">
@@ -179,7 +216,7 @@ export default function Members() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-neutral-200">
-                    {activeMembers.map((member) => (
+                    {filteredMembers.map((member) => (
                       <tr key={member.id} className="hover:bg-neutral-50 transition-colors">
                         <td className="px-6 py-4">
                           <div className="flex items-center space-x-2">
@@ -259,9 +296,22 @@ export default function Members() {
 
             {/* Footer */}
             <div className="border-t border-neutral-200 p-4 bg-neutral-50 flex items-center justify-between">
-              <p className="text-sm text-neutral-600">
-                Showing {activeMembers.length} active {activeMembers.length === 1 ? 'member' : 'members'}
-              </p>
+              <div className="flex items-center space-x-4">
+                <p className="text-sm text-neutral-600">
+                  Showing {filteredMembers.length} {filterType === 'All' ? 'active' : filterType.toLowerCase()} {filteredMembers.length === 1 ? 'member' : 'members'}
+                </p>
+                {filterType !== 'All' && (
+                  <button
+                    onClick={() => {
+                      setFilterType('All');
+                      filteredMembers.length === 0 && setShowMembersTable(false);
+                    }}
+                    className="text-sm text-primary-600 hover:text-primary-700 font-medium"
+                  >
+                    Show All Members
+                  </button>
+                )}
+              </div>
               <button
                 onClick={() => setShowMembersTable(false)}
                 className="btn-secondary"
