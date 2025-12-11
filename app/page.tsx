@@ -1,7 +1,22 @@
 import Link from 'next/link';
 import { Shield, Users, GraduationCap, Calendar, Heart, Handshake, BookOpen, Briefcase } from 'lucide-react';
+import ImageCarousel from '@/components/ImageCarousel';
 
 export default function Home() {
+  // Landing page images - images should be in public/images/landingPage/
+  const landingPageImages = [
+    '/images/landingPage/picture-1.png',
+    '/images/landingPage/picture-2.png',
+    '/images/landingPage/picture-3.png',
+    '/images/landingPage/picture-4.png',
+    '/images/landingPage/picture-5.png',
+    '/images/landingPage/picture-6.png',
+    '/images/landingPage/picture-7.png',
+    '/images/landingPage/picture-8.png',
+    '/images/landingPage/picture-9.png',
+    // Add more images by adding them to public/images/landingPage/ and adding the paths here
+  ];
+
   const coreValues = [
     {
       icon: Shield,
@@ -58,26 +73,34 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container-custom section-padding relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="heading-1 text-white mb-6">
-              Building Stronger Communities Together
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-100 mb-6 leading-relaxed">
-              A charitable, cultural, educational, social and not-for-profit organization incorporated in Queens County, New York, dedicated to creating awareness about safety, social and constitutional rights while improving quality of life for residents of New York State.
-            </p>
-            <p className="text-2xl md:text-3xl font-display font-semibold text-white mb-8">
-              &quot;ONE TEAM ONE DREAM&quot;
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
-                Join Us
-              </Link>
-              <Link href="/donate" className="bg-transparent border-2 border-accent-400 text-white hover:bg-accent-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-                Donate
-              </Link>
-              <Link href="/about" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-                Learn More
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Side - Content */}
+            <div>
+              <h1 className="heading-1 text-white mb-6">
+                Building Stronger Communities Together
+              </h1>
+              <p className="text-xl md:text-2xl text-primary-100 mb-6 leading-relaxed">
+                A charitable, cultural, educational, social and not-for-profit organization incorporated in Queens County, New York, dedicated to creating awareness about safety, social and constitutional rights while improving quality of life for residents of New York State.
+              </p>
+              <p className="text-2xl md:text-3xl font-display font-semibold text-white mb-8">
+                &quot;ONE TEAM ONE DREAM&quot;
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
+                  Join Us
+                </Link>
+                <Link href="/donate" className="bg-transparent border-2 border-accent-400 text-white hover:bg-accent-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                  Donate
+                </Link>
+                <Link href="/about" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Side - Image Carousel */}
+            <div className="w-full">
+              <ImageCarousel images={landingPageImages} autoPlay={true} autoPlayInterval={5000} />
             </div>
           </div>
         </div>

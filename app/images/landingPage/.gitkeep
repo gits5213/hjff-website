@@ -1,0 +1,4 @@
+# Place your landing page images here
+# Supported formats: .jpg, .jpeg, .png, .webp
+# Naming: image1.jpg, image2.jpg, image3.jpg, etc.
+# Update the landingPageImages array in app/page.tsx with the correct paths
