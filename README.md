@@ -72,6 +72,25 @@ npm run build
 npm start
 ```
 
+### Deploy to GitHub Pages
+
+This site is configured for automatic deployment to GitHub Pages via GitHub Actions.
+
+1. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Select "GitHub Actions" as the source
+
+2. **Custom Domain Setup** (optional):
+   - Edit the `CNAME` file and add your domain
+   - Update `next.config.mjs` to set `basePath: ''` and `assetPrefix: ''`
+   - Configure DNS records with your domain provider
+
+3. **Automatic Deployment**:
+   - Push to `master` branch triggers automatic build and deployment
+   - Or manually trigger from Actions → Deploy to GitHub Pages
+
+See `DEPLOYMENT.md` for detailed deployment instructions.
+
 ## Project Structure
 
 ```
