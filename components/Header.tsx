@@ -3,41 +3,46 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useLanguage } from './LanguageProvider';
+import LanguageSwitcher from './LanguageSwitcher';
 
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { 
-    name: 'Programs', 
-    href: '/programs',
-    submenu: [
-      { name: 'Community Support', href: '/programs/community' },
-      { name: 'Job Training', href: '/programs/job-training' },
-      { name: 'Educational Seminars', href: '/programs/education' },
-      { name: 'Social Services', href: '/programs/social-services' },
-    ]
-  },
-  { name: 'Events', href: '/events' },
-  { name: 'Membership', href: '/membership' },
-  { 
-    name: 'Organization', 
-    href: '#',
-    submenu: [
-      { name: 'Executive Board', href: '/executive-board' },
-      { name: 'Steering Committee', href: '/steering-committee' },
-      { name: 'Active Members', href: '/members' },
-      { name: 'Governance', href: '/governance' },
-      { name: 'Photo Gallery', href: '/gallery' },
-    ]
-  },
-  { name: 'Donate', href: '/donate' },
-  { name: 'Contact', href: '/contact' },
-];
+// Navigation will be built using translations in the component
 
 export default function Header() {
+  const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+
+  const navigation = [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.about'), href: '/about' },
+    { 
+      name: t('nav.programs'), 
+      href: '/programs',
+      submenu: [
+        { name: t('nav.communitySupport'), href: '/programs/community' },
+        { name: t('nav.jobTraining'), href: '/programs/job-training' },
+        { name: t('nav.educationalSeminars'), href: '/programs/education' },
+        { name: t('nav.socialServices'), href: '/programs/social-services' },
+      ]
+    },
+    { name: t('nav.events'), href: '/events' },
+    { name: t('nav.membership'), href: '/membership' },
+    { 
+      name: t('nav.organization'), 
+      href: '#',
+      submenu: [
+        { name: t('nav.executiveBoard'), href: '/executive-board' },
+        { name: t('nav.steeringCommittee'), href: '/steering-committee' },
+        { name: t('nav.activeMembers'), href: '/members' },
+        { name: t('nav.governance'), href: '/governance' },
+        { name: t('nav.photoGallery'), href: '/gallery' },
+      ]
+    },
+    { name: t('nav.donate'), href: '/donate' },
+    { name: t('nav.contact'), href: '/contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,14 +64,15 @@ export default function Header() {
               <span className="font-display text-2xl font-bold text-primary-600">
                 HJFF
               </span>
-              <span className="text-xs text-neutral-600 -mt-1">
+              <span className="text-xs text-neutral-600 -mt-1 hidden sm:block">
                 Hollis Jamaica Friends & Family
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
+            <LanguageSwitcher />
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -114,6 +120,9 @@ export default function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-neutral-200">
+            <div className="mb-4 pb-4 border-b border-neutral-200">
+              <LanguageSwitcher />
+            </div>
             {navigation.map((item) => (
               <div key={item.name}>
                 <Link

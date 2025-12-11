@@ -1,30 +1,34 @@
+'use client';
+
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
-
-const footerLinks = {
-  organization: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Our Mission', href: '/about#mission' },
-    { name: 'Executive Board', href: '/executive-board' },
-    { name: 'Steering Committee', href: '/steering-committee' },
-    { name: 'Governance', href: '/governance' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  programs: [
-    { name: 'Community Support', href: '/programs/community' },
-    { name: 'Job Training', href: '/programs/job-training' },
-    { name: 'Educational Seminars', href: '/programs/education' },
-    { name: 'Social Services', href: '/programs/social-services' },
-  ],
-  legal: [
-    { name: 'Privacy Policy', href: '/legal/privacy' },
-    { name: 'Terms of Service', href: '/legal/terms' },
-    { name: 'Accessibility', href: '/legal/accessibility' },
-  ],
-};
+import { useLanguage } from './LanguageProvider';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    organization: [
+      { name: t('footer.aboutUs'), href: '/about' },
+      { name: t('footer.ourMission'), href: '/about#mission' },
+      { name: t('nav.executiveBoard'), href: '/executive-board' },
+      { name: t('nav.steeringCommittee'), href: '/steering-committee' },
+      { name: t('nav.governance'), href: '/governance' },
+      { name: t('nav.contact'), href: '/contact' },
+    ],
+    programs: [
+      { name: t('nav.communitySupport'), href: '/programs/community' },
+      { name: t('nav.jobTraining'), href: '/programs/job-training' },
+      { name: t('nav.educationalSeminars'), href: '/programs/education' },
+      { name: t('nav.socialServices'), href: '/programs/social-services' },
+    ],
+    legal: [
+      { name: t('footer.legal.privacy'), href: '/legal/privacy' },
+      { name: t('footer.legal.terms'), href: '/legal/terms' },
+      { name: t('footer.legal.accessibility'), href: '/legal/accessibility' },
+    ],
+  };
 
   return (
     <footer className="bg-neutral-900 text-neutral-300">
@@ -36,10 +40,10 @@ export default function Footer() {
               HJFF Inc.
             </h3>
             <p className="text-neutral-400 mb-2">
-              Hollis Jamaica Friends and Family Inc. is a charitable nonprofit organization dedicated to improving lives in New York.
+              {t('footer.description')}
             </p>
             <p className="text-primary-400 font-semibold text-lg">
-              &quot;ONE TEAM ONE DREAM&quot;
+              &quot;{t('common.slogan')}&quot;
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-neutral-400 hover:text-primary-400 transition-colors" aria-label="Facebook">
@@ -56,7 +60,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Organization</h4>
+            <h4 className="font-semibold text-white mb-4">{t('footer.organization')}</h4>
             <ul className="space-y-2">
               {footerLinks.organization.map((link) => (
                 <li key={link.name}>
@@ -73,7 +77,7 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Programs</h4>
+            <h4 className="font-semibold text-white mb-4">{t('footer.programs')}</h4>
             <ul className="space-y-2">
               {footerLinks.programs.map((link) => (
                 <li key={link.name}>
@@ -90,14 +94,14 @@ export default function Footer() {
 
           {/* Get Involved */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Get Involved</h4>
+            <h4 className="font-semibold text-white mb-4">{t('footer.getInvolved')}</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/membership"
                   className="text-neutral-400 hover:text-primary-400 transition-colors"
                 >
-                  Become a Member
+                  {t('footer.becomeMember')}
                 </Link>
               </li>
               <li>
@@ -105,7 +109,7 @@ export default function Footer() {
                   href="/donate"
                   className="text-neutral-400 hover:text-primary-400 transition-colors"
                 >
-                  Donate
+                  {t('nav.donate')}
                 </Link>
               </li>
               <li>
@@ -113,7 +117,7 @@ export default function Footer() {
                   href="/gallery"
                   className="text-neutral-400 hover:text-primary-400 transition-colors"
                 >
-                  Photo Gallery
+                  {t('footer.photoGallery')}
                 </Link>
               </li>
               <li>
@@ -121,7 +125,7 @@ export default function Footer() {
                   href="/members"
                   className="text-neutral-400 hover:text-primary-400 transition-colors"
                 >
-                  Active Members
+                  {t('footer.activeMembers')}
                 </Link>
               </li>
             </ul>
@@ -129,7 +133,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <h4 className="font-semibold text-white mb-4">{t('footer.contact')}</h4>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" />
@@ -163,7 +167,7 @@ export default function Footer() {
         <div className="border-t border-neutral-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-neutral-400 text-sm">
-              © {currentYear} Hollis Jamaica Friends and Family Inc. All rights reserved.
+              © {currentYear} Hollis Jamaica Friends and Family Inc. {t('footer.copyright')}
             </p>
             <div className="flex space-x-6">
               {footerLinks.legal.map((link) => (
