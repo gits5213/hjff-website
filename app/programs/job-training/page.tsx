@@ -44,7 +44,7 @@ export default function JobTraining() {
               Our Job Training programs are designed to bridge the gap between job seekers and employment opportunities. We recognize that finding and securing employment requires more than just a desire to work—it requires the right skills, preparation, and support.
             </p>
             <p className="text-body">
-              Whether you&apos;re entering the workforce for the first time, looking to change careers, or re-entering after a gap, our comprehensive training programs provide the tools you need to succeed.
+              Whether you're entering the workforce for the first time, looking to change careers, or re-entering after a gap, our comprehensive training programs provide the tools you need to succeed.
             </p>
           </div>
 
