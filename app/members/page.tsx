@@ -1,4 +1,7 @@
-import { Users, Award, Heart, Star, CheckCircle } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { Users, Award, Heart, Star, CheckCircle, X, Phone, Mail, MapPin, User } from 'lucide-react';
 import Link from 'next/link';
 
 // Members data - updated from form submissions and manual additions
@@ -9,6 +12,12 @@ interface Member {
   joinDate: string;
   role?: string;
   active: boolean;
+  // Contact information from membership form
+  beneficiaryName?: string;
+  currentAddress?: string;
+  memberPhone?: string;
+  beneficiaryPhone?: string;
+  email?: string;
 }
 
 // Load members from localStorage (for demo) or use your backend API
@@ -16,15 +25,7 @@ const loadMembers = (): Member[] => {
   if (typeof window === 'undefined') return [];
   
   try {
-    // Check if there are any pending applications in localStorage
-    const application = localStorage.getItem('membershipApplication');
-    if (application) {
-      const appData = JSON.parse(application);
-      // In production, this would be handled by your backend after payment verification
-      // For now, members need to be manually added after payment confirmation
-    }
-
-    // Load from localStorage or use static data
+    // Load from localStorage
     const stored = localStorage.getItem('activeMembers');
     if (stored) {
       return JSON.parse(stored);
@@ -33,10 +34,26 @@ const loadMembers = (): Member[] => {
     console.error('Error loading members:', error);
   }
   
-  return [];
+  // Default sample data - replace with your actual member data
+  return [
+    // Example member structure with contact information:
+    // {
+    //   id: 1,
+    //   name: 'John Doe',
+    //   membershipType: 'General',
+    //   joinDate: '2024-12',
+    //   role: 'Member',
+    //   active: true,
+    //   beneficiaryName: 'Jane Doe',
+    //   currentAddress: '123 Main St, Queens, NY 11412',
+    //   memberPhone: '(212) 555-1234',
+    //   beneficiaryPhone: '(212) 555-5678',
+    //   email: 'john.doe@example.com',
+    // },
+  ];
 };
 
-const sampleMembers: Member[] = loadMembers();
+const sampleMembers: Member[] = typeof window !== 'undefined' ? loadMembers() : [];
 
 // Example structure - replace with your actual member data or API call
 // In production, fetch from your backend/API:
@@ -51,6 +68,8 @@ const membershipTypeColors = {
 };
 
 export default function Members() {
+  const [showMembersTable, setShowMembersTable] = useState(false);
+  
   const activeMembers = sampleMembers.filter((member) => member.active);
   
   // Group members by type
@@ -78,11 +97,15 @@ export default function Members() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            <div className="text-center p-6 bg-neutral-50 rounded-xl">
+            <button
+              onClick={() => setShowMembersTable(!showMembersTable)}
+              className="text-center p-6 bg-neutral-50 rounded-xl hover:bg-primary-50 transition-colors duration-200 cursor-pointer border-2 border-transparent hover:border-primary-200"
+            >
               <Users className="w-12 h-12 text-primary-600 mx-auto mb-3" />
               <div className="text-3xl font-bold text-neutral-900 mb-1">{activeMembers.length}</div>
               <div className="text-neutral-600">Total Active</div>
-            </div>
+              <div className="text-xs text-primary-600 mt-2">Click to view details</div>
+            </button>
             <div className="text-center p-6 bg-neutral-50 rounded-xl">
               <Award className="w-12 h-12 text-green-600 mx-auto mb-3" />
               <div className="text-3xl font-bold text-neutral-900 mb-1">
@@ -107,6 +130,148 @@ export default function Members() {
           </div>
         </div>
       </section>
+
+      {/* Members Contact Table Modal */}
+      {showMembersTable && (
+        <div
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowMembersTable(false)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-neutral-200">
+              <div>
+                <h2 className="heading-2">Active Members Contact Information</h2>
+                <p className="text-neutral-600 mt-1">Total: {activeMembers.length} members</p>
+              </div>
+              <button
+                onClick={() => setShowMembersTable(false)}
+                className="p-2 hover:bg-neutral-100 rounded-lg transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-6 h-6 text-neutral-600" />
+              </button>
+            </div>
+
+            {/* Table */}
+            <div className="overflow-auto flex-1">
+              {activeMembers.length === 0 ? (
+                <div className="p-12 text-center">
+                  <Users className="w-16 h-16 text-neutral-400 mx-auto mb-4" />
+                  <p className="text-neutral-600">No active members yet.</p>
+                </div>
+              ) : (
+                <table className="w-full">
+                  <thead className="bg-neutral-50 sticky top-0">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Name</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Type</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Email</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Member Phone</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Beneficiary</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Beneficiary Phone</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Address</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Join Date</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold text-neutral-700">Role</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-neutral-200">
+                    {activeMembers.map((member) => (
+                      <tr key={member.id} className="hover:bg-neutral-50 transition-colors">
+                        <td className="px-6 py-4">
+                          <div className="flex items-center space-x-2">
+                            <User className="w-4 h-4 text-neutral-400" />
+                            <span className="font-medium text-neutral-900">{member.name}</span>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className={`px-2 py-1 rounded text-xs font-medium ${membershipTypeColors[member.membershipType]}`}>
+                            {member.membershipType}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4">
+                          {member.email ? (
+                            <a
+                              href={`mailto:${member.email}`}
+                              className="flex items-center space-x-1 text-primary-600 hover:text-primary-700"
+                            >
+                              <Mail className="w-4 h-4" />
+                              <span className="text-sm">{member.email}</span>
+                            </a>
+                          ) : (
+                            <span className="text-neutral-400 text-sm">—</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4">
+                          {member.memberPhone ? (
+                            <a
+                              href={`tel:${member.memberPhone.replace(/\D/g, '')}`}
+                              className="flex items-center space-x-1 text-primary-600 hover:text-primary-700"
+                            >
+                              <Phone className="w-4 h-4" />
+                              <span className="text-sm">{member.memberPhone}</span>
+                            </a>
+                          ) : (
+                            <span className="text-neutral-400 text-sm">—</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-neutral-700">
+                          {member.beneficiaryName || <span className="text-neutral-400">—</span>}
+                        </td>
+                        <td className="px-6 py-4">
+                          {member.beneficiaryPhone ? (
+                            <a
+                              href={`tel:${member.beneficiaryPhone.replace(/\D/g, '')}`}
+                              className="flex items-center space-x-1 text-primary-600 hover:text-primary-700"
+                            >
+                              <Phone className="w-4 h-4" />
+                              <span className="text-sm">{member.beneficiaryPhone}</span>
+                            </a>
+                          ) : (
+                            <span className="text-neutral-400 text-sm">—</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-neutral-700 max-w-xs">
+                          {member.currentAddress ? (
+                            <div className="flex items-start space-x-1">
+                              <MapPin className="w-4 h-4 text-neutral-400 mt-0.5 flex-shrink-0" />
+                              <span className="line-clamp-2">{member.currentAddress}</span>
+                            </div>
+                          ) : (
+                            <span className="text-neutral-400">—</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-neutral-700">
+                          {member.joinDate || <span className="text-neutral-400">—</span>}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-neutral-700">
+                          {member.role || <span className="text-neutral-400">—</span>}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+
+            {/* Footer */}
+            <div className="border-t border-neutral-200 p-4 bg-neutral-50 flex items-center justify-between">
+              <p className="text-sm text-neutral-600">
+                Showing {activeMembers.length} active {activeMembers.length === 1 ? 'member' : 'members'}
+              </p>
+              <button
+                onClick={() => setShowMembersTable(false)}
+                className="btn-secondary"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Members List */}
       <section className="section-padding bg-neutral-50">
