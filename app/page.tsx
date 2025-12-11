@@ -72,10 +72,10 @@ export default function Home() {
               <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
                 Join Us
               </Link>
-              <Link href="/donate" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/donate" className="bg-transparent border-2 border-accent-400 text-white hover:bg-accent-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
                 Donate
               </Link>
-              <Link href="/about" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/about" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
                 Learn More
               </Link>
             </div>
