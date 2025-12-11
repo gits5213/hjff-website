@@ -24,26 +24,47 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Only run on client side
+    if (typeof window === 'undefined') return;
+    
     setMounted(true);
     // Get saved locale from localStorage
-    const savedLocale = localStorage.getItem('locale') as Locale | null;
-    if (savedLocale && (savedLocale === 'en' || savedLocale === 'bn')) {
-      setLocaleState(savedLocale);
-    } else {
-      // Try to detect browser language
+    try {
+      const savedLocale = localStorage.getItem('locale') as Locale | null;
+      if (savedLocale && (savedLocale === 'en' || savedLocale === 'bn')) {
+        setLocaleState(savedLocale);
+        return;
+      }
+    } catch (error) {
+      console.warn('Error reading locale from localStorage:', error);
+    }
+    
+    // Try to detect browser language
+    try {
       const browserLang = navigator.language.split('-')[0];
       if (browserLang === 'bn') {
         setLocaleState('bn');
       }
+    } catch (error) {
+      console.warn('Error detecting browser language:', error);
     }
   }, []);
 
   const setLocale = (newLocale: Locale) => {
+    if (newLocale !== 'en' && newLocale !== 'bn') {
+      console.warn(`Invalid locale: ${newLocale}, using default`);
+      newLocale = defaultLocale;
+    }
     setLocaleState(newLocale);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('locale', newLocale);
-      // Update HTML lang attribute
-      document.documentElement.lang = newLocale;
+      try {
+        localStorage.setItem('locale', newLocale);
+        // Update HTML lang attribute
+        if (document && document.documentElement) {
+          document.documentElement.lang = newLocale;
+        }
+      } catch (error) {
+        console.warn('Error saving locale:', error);
+      }
     }
   };
 
@@ -54,8 +75,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [locale, mounted]);
 
   const t = (key: string): string => {
-    const translation = translations[locale];
-    return getNestedTranslation(translation, key);
+    try {
+      const translation = translations[locale] || translations[defaultLocale];
+      if (!translation) {
+        console.error('Translations not available');
+        return key;
+      }
+      return getNestedTranslation(translation, key);
+    } catch (error) {
+      console.error(`Translation error for key "${key}":`, error);
+      return key;
+    }
   };
 
   // Provide default values during SSR/initial render

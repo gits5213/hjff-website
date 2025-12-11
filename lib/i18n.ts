@@ -11,16 +11,25 @@ export function getNestedTranslation(
   translations: Translations,
   key: string
 ): string {
-  const keys = key.split('.');
-  let value: any = translations;
+  try {
+    const keys = key.split('.');
+    let value: any = translations;
 
-  for (const k of keys) {
-    if (value && typeof value === 'object' && k in value) {
-      value = value[k];
-    } else {
-      return key; // Return key if translation not found
+    for (const k of keys) {
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k];
+      } else {
+        console.warn(`Translation key not found: ${key}`);
+        return key; // Return key if translation not found
+      }
     }
-  }
 
-  return typeof value === 'string' ? value : key;
+    if (typeof value === 'string' && value.length > 0) {
+      return value;
+    }
+    return key;
+  } catch (error) {
+    console.error(`Error getting translation for key "${key}":`, error);
+    return key;
+  }
 }
