@@ -5,23 +5,23 @@ export default function Home() {
   const coreValues = [
     {
       icon: Shield,
-      title: 'Safety Awareness',
-      description: 'Raising awareness about safety, social, and constitutional rights in our community.',
+      title: 'Create Awareness',
+      description: 'Create awareness among the community concerning their safety, social and constitutional rights.',
     },
     {
       icon: Handshake,
-      title: 'Community Collaboration',
-      description: 'Working with government agencies and officials to address community concerns.',
+      title: 'Government Collaboration',
+      description: 'Work with government agencies, community-based organizations and elected officials to resolve community issues.',
     },
     {
       icon: Heart,
       title: 'Quality of Life',
-      description: 'Supporting programs that improve quality of life in New York communities.',
+      description: 'Support initiatives and programs to improve the quality of life for residents in New York State.',
     },
     {
       icon: Users,
-      title: 'Multicultural Unity',
-      description: 'Hosting multicultural events that celebrate diversity and bring communities together.',
+      title: 'Community Engagement',
+      description: 'Engage in multicultural events, educational programs, job training, and social services.',
     },
   ];
 
@@ -62,8 +62,11 @@ export default function Home() {
             <h1 className="heading-1 text-white mb-6">
               Building Stronger Communities Together
             </h1>
-            <p className="text-xl md:text-2xl text-primary-100 mb-8 leading-relaxed">
-              Hollis Jamaica Friends and Family Inc. is a charitable nonprofit organization dedicated to raising awareness about safety, social, and constitutional rights while improving quality of life in New York.
+            <p className="text-xl md:text-2xl text-primary-100 mb-6 leading-relaxed">
+              A charitable, cultural, educational, social and not-for-profit organization incorporated in Queens County, New York, dedicated to creating awareness about safety, social and constitutional rights while improving quality of life for residents of New York State.
+            </p>
+            <p className="text-2xl md:text-3xl font-display font-semibold text-white mb-8">
+              &quot;ONE TEAM ONE DREAM&quot;
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
@@ -80,11 +83,29 @@ export default function Home() {
       {/* Mission Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-4xl mx-auto mb-16">
             <h2 className="heading-2 mb-6">Our Mission</h2>
-            <p className="text-body text-lg">
-              We are committed to empowering communities through education, advocacy, and direct support. Our mission is to raise awareness about fundamental rights, collaborate with government agencies to address community needs, and provide programs that enhance the quality of life for all New Yorkers.
+            <p className="text-body text-lg mb-4">
+              HOLLIS JAMAICA FRIENDS AND FAMILY INC. is a socio-economic and community development organization. Our mission includes:
             </p>
+            <ul className="text-left space-y-3 text-body max-w-3xl mx-auto">
+              <li className="flex items-start space-x-3">
+                <span className="text-primary-600 font-bold mt-1">•</span>
+                <span>Create awareness among the community and community at large concerning their safety, social and constitutional rights</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="text-primary-600 font-bold mt-1">•</span>
+                <span>Work with various government agencies, community-based organizations and elected officials to communicate and resolve issues and concerns of the people living in the community</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="text-primary-600 font-bold mt-1">•</span>
+                <span>Act as an umbrella organization to create, support, sponsor initiatives and programs to help improve the quality of life for residents living in the State of New York</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="text-primary-600 font-bold mt-1">•</span>
+                <span>Engage in multicultural events, seminars, educational programs, job training programs and provide other social services to the community</span>
+              </li>
+            </ul>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

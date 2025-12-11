@@ -5,7 +5,7 @@ const footerLinks = {
   organization: [
     { name: 'About Us', href: '/about' },
     { name: 'Our Mission', href: '/about#mission' },
-    { name: 'Leadership', href: '/about#leadership' },
+    { name: 'Governance', href: '/governance' },
     { name: 'Contact', href: '/contact' },
   ],
   programs: [
@@ -33,8 +33,11 @@ export default function Footer() {
             <h3 className="font-display text-2xl font-bold text-white mb-4">
               HJFF Inc.
             </h3>
-            <p className="text-neutral-400 mb-4">
+            <p className="text-neutral-400 mb-2">
               Hollis Jamaica Friends and Family Inc. is a charitable nonprofit organization dedicated to improving lives in New York.
+            </p>
+            <p className="text-primary-400 font-semibold text-lg">
+              &quot;ONE TEAM ONE DREAM&quot;
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-neutral-400 hover:text-primary-400 transition-colors" aria-label="Facebook">

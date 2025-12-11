@@ -76,20 +76,41 @@ export default function About() {
               <h2 className="heading-2 mb-6">Our Mission</h2>
               <div className="space-y-4 text-body">
                 <p>
-                  Our mission is threefold:
+                  HOLLIS JAMAICA FRIENDS AND FAMILY INC. is a socio-economic and community development organization. Our mission is:
                 </p>
-                <ul className="list-disc list-inside space-y-2 text-body ml-4">
-                  <li><strong>Raise Awareness:</strong> We educate community members about their safety, social, and constitutional rights, ensuring everyone knows how to protect themselves and advocate for their interests.</li>
-                  <li><strong>Foster Collaboration:</strong> We work directly with government agencies and officials to address community concerns, serving as a voice for residents and facilitating productive dialogue.</li>
-                  <li><strong>Improve Quality of Life:</strong> Through our comprehensive programs—including multicultural events, educational seminars, job training, and social services—we provide tangible support that enhances the daily lives of New Yorkers.</li>
+                <ul className="list-disc list-inside space-y-3 text-body ml-4">
+                  <li><strong>Create Awareness:</strong> To create awareness among the community and community at large concerning their safety, social and constitutional rights.</li>
+                  <li><strong>Collaborate with Government:</strong> To work with various government agencies, community-based organizations and elected officials to communicate and resolve issues and concerns of the people living in the community.</li>
+                  <li><strong>Improve Quality of Life:</strong> To act as an umbrella organization to create, support, sponsor initiatives and programs to help improve the quality of life for residents living in the State of New York.</li>
+                  <li><strong>Community Engagement:</strong> To engage in multicultural events, seminars, educational programs, job training programs and provide other social services to the community.</li>
                 </ul>
+              </div>
+            </div>
+            
+            <div className="mb-12">
+              <h2 className="heading-2 mb-6">Our Purpose</h2>
+              <div className="space-y-4 text-body">
+                <p>
+                  HOLLIS JAMAICA FRIENDS AND FAMILY INC. is organized under section 402 of the Not-for-Profit Corporation Law as a type A corporation pursuant to section 201 of the Not-for-Profit Corporation Law. The organization is organized exclusively for charitable purposes and approved under section 501(c)(3) of the Internal Revenue Service Code.
+                </p>
+                <div className="bg-primary-50 border border-primary-200 rounded-xl p-6 mt-6">
+                  <p className="text-body font-semibold text-primary-900 mb-2">Our Slogan:</p>
+                  <p className="text-2xl font-display text-primary-700">"ONE TEAM ONE DREAM"</p>
+                </div>
               </div>
             </div>
 
             <div>
-              <h2 className="heading-2 mb-6">Our Vision</h2>
+              <h2 className="heading-2 mb-6">Organization Structure</h2>
+              <p className="text-body mb-4">
+                The organization has two functional bodies:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-body ml-4 mb-4">
+                <li><strong>The Executive Board</strong> - The main decision-making and execution body of the organization</li>
+                <li><strong>The Steering Committee</strong> - Composed of advisory committee and founding members</li>
+              </ul>
               <p className="text-body">
-                We envision a New York where every community member is informed, empowered, and connected. A place where rights are understood, voices are heard, and opportunities are accessible to all. Through our work, we strive to build resilient communities that support one another and thrive together.
+                Our headquarters is located within Queens County of New York City, serving the Hollis and Jamaica areas and the broader New York State community.
               </p>
             </div>
           </div>

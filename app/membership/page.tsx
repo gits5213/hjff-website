@@ -25,38 +25,75 @@ export default function Membership() {
     },
   ];
 
-  const membershipLevels = [
+  const membershipTypes = [
     {
-      name: 'Individual',
-      price: '25',
-      period: 'per year',
-      features: [
-        'Voting rights at annual meetings',
-        'Access to all community events',
-        'Monthly newsletter',
-        'Discounts on workshops and seminars',
+      name: 'General Member',
+      description: 'One-time registration fee required. To obtain voting rights, must participate in monthly subscription for at least one year. Must be a resident of Hollis/Jamaica area in Queens County.',
+      requirements: [
+        'One-time registration fee',
+        'Monthly subscription (for voting rights)',
+        'Resident of Hollis/Jamaica area',
+        'Agreement with organization purpose and bylaws',
+      ],
+      benefits: [
+        'Access to community events',
+        'Voting rights after 1 year of monthly subscription',
+        'Eligibility for Executive Board after 2 years',
       ],
     },
     {
-      name: 'Family',
-      price: '50',
-      period: 'per year',
-      features: [
-        'All Individual benefits',
-        'Membership for entire household',
-        'Priority registration for events',
-        'Family-focused programs access',
+      name: 'Life Member',
+      description: 'General members who maintain regular monthly subscription payments for a period of three years become Life Members with full rights and privileges.',
+      requirements: [
+        'Three years of regular monthly subscription',
+        'Maintained active membership',
+      ],
+      benefits: [
+        'All General Member benefits',
+        'Full voting rights',
+        'Life-long membership status',
+        'Honored recognition',
       ],
     },
     {
-      name: 'Supporter',
-      price: '100',
-      period: 'per year',
-      features: [
-        'All Family benefits',
-        'Recognition in annual report',
-        'Invitation to donor appreciation events',
-        'Complimentary event tickets',
+      name: 'Advisory Board Member',
+      description: 'Appointed by Executive Board from general members. Limited to nine (9) members. Provide advice and help organize events.',
+      requirements: [
+        'Appointment by Executive Board',
+        'Community leadership',
+        'Passion for organization mission',
+      ],
+      benefits: [
+        'Provide guidance to Executive Board',
+        'Help organize events',
+        'Community insights and expertise',
+        'Can participate in monthly subscription for voting rights',
+      ],
+    },
+    {
+      name: 'Founding Member',
+      description: 'The individuals who initiated the formation of the organization. Always honored on all occasions.',
+      requirements: [
+        'Original founding members',
+      ],
+      benefits: [
+        'Special recognition',
+        'Steering Committee participation',
+        'Honored at all events',
+        'Historical recognition',
+      ],
+    },
+    {
+      name: 'Honorary Member',
+      description: 'Distinguished persons honored by Executive Board based on experience and service towards the community.',
+      requirements: [
+        'Distinguished service',
+        'Appointment by Executive Board',
+      ],
+      benefits: [
+        'Honorific recognition',
+        'Community appreciation',
+        'Special events participation',
       ],
     },
   ];
@@ -104,37 +141,66 @@ export default function Membership() {
       <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="heading-2 mb-6">Membership Levels</h2>
-            <p className="text-body text-lg max-w-2xl mx-auto">
-              Choose the membership level that works best for you. All memberships are annual and help support our community programs.
+            <h2 className="heading-2 mb-6">Membership Types</h2>
+            <p className="text-body text-lg max-w-3xl mx-auto mb-4">
+              All residents residing in Hollis and Jamaica area in Queens County in the City of New York are eligible to become a member regardless of race, color, gender and nationality.
+            </p>
+            <p className="text-body text-sm text-neutral-600 max-w-2xl mx-auto">
+              Membership subscriptions are based on the Calendar Year (January 1st to December 31st). Amount of membership subscription is determined by the Executive Board periodically. Paid subscriptions are non-refundable.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {membershipLevels.map((level) => (
+          <div className="space-y-6 max-w-5xl mx-auto">
+            {membershipTypes.map((type, index) => (
               <div
-                key={level.name}
-                className="bg-white rounded-xl shadow-md border border-neutral-200 p-8 flex flex-col"
+                key={type.name}
+                className="bg-white rounded-xl shadow-md border border-neutral-200 p-8"
               >
-                <h3 className="heading-3 text-2xl mb-4">{level.name}</h3>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-primary-600">${level.price}</span>
-                  <span className="text-neutral-600 ml-2">{level.period}</span>
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="heading-3 text-2xl">{type.name}</h3>
+                  {index < 2 && (
+                    <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
+                      Most Popular
+                    </span>
+                  )}
                 </div>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {level.features.map((feature, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-neutral-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contact"
-                  className="btn-primary text-center block"
-                >
-                  Join Now
-                </Link>
+                <p className="text-body mb-6 text-neutral-700">{type.description}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold text-lg mb-3 text-primary-600">Requirements</h4>
+                    <ul className="space-y-2">
+                      {type.requirements.map((req, idx) => (
+                        <li key={idx} className="flex items-start space-x-2">
+                          <CheckCircle className="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-neutral-700">{req}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-3 text-primary-600">Benefits</h4>
+                    <ul className="space-y-2">
+                      {type.benefits.map((benefit, idx) => (
+                        <li key={idx} className="flex items-start space-x-2">
+                          <Star className="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-neutral-700">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                
+                {index < 2 && (
+                  <div className="mt-6">
+                    <Link
+                      href="/contact"
+                      className="btn-primary inline-block"
+                    >
+                      Apply for {type.name}
+                    </Link>
+                  </div>
+                )}
               </div>
             ))}
           </div>
