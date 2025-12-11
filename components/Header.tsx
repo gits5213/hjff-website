@@ -19,7 +19,17 @@ const navigation = [
   },
   { name: 'Events', href: '/events' },
   { name: 'Membership', href: '/membership' },
-  { name: 'Governance', href: '/governance' },
+  { 
+    name: 'Organization', 
+    href: '#',
+    submenu: [
+      { name: 'Executive Board', href: '/executive-board' },
+      { name: 'Steering Committee', href: '/steering-committee' },
+      { name: 'Active Members', href: '/members' },
+      { name: 'Governance', href: '/governance' },
+      { name: 'Photo Gallery', href: '/gallery' },
+    ]
+  },
   { name: 'Donate', href: '/donate' },
   { name: 'Contact', href: '/contact' },
 ];

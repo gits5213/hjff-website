@@ -5,6 +5,8 @@ const footerLinks = {
   organization: [
     { name: 'About Us', href: '/about' },
     { name: 'Our Mission', href: '/about#mission' },
+    { name: 'Executive Board', href: '/executive-board' },
+    { name: 'Steering Committee', href: '/steering-committee' },
     { name: 'Governance', href: '/governance' },
     { name: 'Contact', href: '/contact' },
   ],
@@ -104,6 +106,22 @@ export default function Footer() {
                   className="text-neutral-400 hover:text-primary-400 transition-colors"
                 >
                   Donate
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gallery"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors"
+                >
+                  Photo Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/members"
+                  className="text-neutral-400 hover:text-primary-400 transition-colors"
+                >
+                  Active Members
                 </Link>
               </li>
             </ul>
