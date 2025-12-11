@@ -44,15 +44,14 @@ export default function ImageCarousel({ images, autoPlay = true, autoPlayInterva
   }
 
   return (
-    <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl">
+      <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl">
       {/* Main Image */}
       <div className="relative w-full h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
-        <Image
+        <img
           src={images[currentIndex]}
           alt={`Image ${currentIndex + 1} of ${images.length}`}
-          fill
-          className="object-cover"
-          priority={currentIndex === 0}
+          className="w-full h-full object-cover"
+          loading={currentIndex === 0 ? 'eager' : 'lazy'}
         />
         
         {/* Gradient Overlay */}
