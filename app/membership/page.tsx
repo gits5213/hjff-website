@@ -191,16 +191,14 @@ export default function Membership() {
                   </div>
                 </div>
                 
-                {index < 2 && (
-                  <div className="mt-6">
-                    <Link
-                      href="/contact"
-                      className="btn-primary inline-block"
-                    >
-                      Apply for {type.name}
-                    </Link>
-                  </div>
-                )}
+                <div className="mt-6">
+                  <Link
+                    href={`/membership/apply?type=${encodeURIComponent(type.name)}`}
+                    className="btn-primary inline-block"
+                  >
+                    Apply for {type.name}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

@@ -1,7 +1,7 @@
 import { Users, Award, Heart, Star, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 
-// Sample members data - update with your actual member data
+// Members data - updated from form submissions and manual additions
 interface Member {
   id: number;
   name: string;
@@ -11,17 +11,36 @@ interface Member {
   active: boolean;
 }
 
-const sampleMembers: Member[] = [
-  // Example structure - replace with your actual member data
-  // {
-  //   id: 1,
-  //   name: 'John Doe',
-  //   membershipType: 'Life',
-  //   joinDate: '2021-01',
-  //   role: 'President',
-  //   active: true,
-  // },
-];
+// Load members from localStorage (for demo) or use your backend API
+const loadMembers = (): Member[] => {
+  if (typeof window === 'undefined') return [];
+  
+  try {
+    // Check if there are any pending applications in localStorage
+    const application = localStorage.getItem('membershipApplication');
+    if (application) {
+      const appData = JSON.parse(application);
+      // In production, this would be handled by your backend after payment verification
+      // For now, members need to be manually added after payment confirmation
+    }
+
+    // Load from localStorage or use static data
+    const stored = localStorage.getItem('activeMembers');
+    if (stored) {
+      return JSON.parse(stored);
+    }
+  } catch (error) {
+    console.error('Error loading members:', error);
+  }
+  
+  return [];
+};
+
+const sampleMembers: Member[] = loadMembers();
+
+// Example structure - replace with your actual member data or API call
+// In production, fetch from your backend/API:
+// const sampleMembers: Member[] = await fetch('/api/members').then(res => res.json());
 
 const membershipTypeColors = {
   General: 'bg-blue-100 text-blue-700',
