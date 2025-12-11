@@ -72,7 +72,7 @@ export default function Home() {
               <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
                 Join Us
               </Link>
-              <Link href="/donate" className="btn-primary bg-accent-500 hover:bg-accent-600 text-white border-2 border-accent-400">
+              <Link href="/donate" className="btn-secondary border-white text-white hover:bg-white/10">
                 Donate
               </Link>
               <Link href="/about" className="btn-secondary border-white text-white hover:bg-white/10">
