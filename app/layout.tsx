@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body>
+      <body suppressHydrationWarning={true}>
         <Header />
         <main className="min-h-screen">
           {children}
