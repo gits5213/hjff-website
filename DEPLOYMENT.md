@@ -2,6 +2,8 @@
 
 This guide explains how to deploy the HJFF website to GitHub Pages with a custom domain.
 
+> **Note**: The GitHub Actions workflow will automatically deploy when you push to the master branch.
+
 ## Prerequisites
 
 - Repository is set up on GitHub
