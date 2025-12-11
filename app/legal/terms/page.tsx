@@ -24,7 +24,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="heading-2 mb-4">Agreement to Terms</h2>
               <p className="text-body mb-4">
-                By accessing or using the website and services of Hollis Jamaica Friends and Family Inc. ("HJFF," "we," "our," or "us"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our website or services.
+                By accessing or using the website and services of Hollis Jamaica Friends and Family Inc. (&quot;HJFF,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, please do not use our website or services.
               </p>
               <p className="text-body">
                 These Terms apply to all visitors, users, members, and others who access or use our services.
@@ -137,7 +137,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="heading-2 mb-4">Changes to Terms</h2>
               <p className="text-body">
-                We reserve the right to modify these Terms at any time. We will notify users of material changes by posting the updated Terms on this page and updating the "Last Updated" date. Your continued use of our website after such changes constitutes acceptance of the updated Terms.
+                We reserve the right to modify these Terms at any time. We will notify users of material changes by posting the updated Terms on this page and updating the &quot;Last Updated&quot; date. Your continued use of our website after such changes constitutes acceptance of the updated Terms.
               </p>
             </section>
 

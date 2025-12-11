@@ -41,7 +41,7 @@ export default function SocialServices() {
           <div className="max-w-4xl mx-auto mb-12">
             <h2 className="heading-2 mb-6">Comprehensive Support for Our Community</h2>
             <p className="text-body mb-4">
-              Our Social Services programs are designed to provide holistic support for individuals and families facing various challenges. We understand that navigating life's difficulties can be overwhelming, and our goal is to make the process easier by providing guidance, resources, and direct assistance.
+              Our Social Services programs are designed to provide holistic support for individuals and families facing various challenges. We understand that navigating life&apos;s difficulties can be overwhelming, and our goal is to make the process easier by providing guidance, resources, and direct assistance.
             </p>
             <p className="text-body">
               Our trained staff work with you to understand your unique situation and connect you with the appropriate services, whether those are provided directly by our organization or through our network of trusted partners.

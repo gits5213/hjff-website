@@ -31,7 +31,7 @@ export default function CommunitySupport() {
         <div className="container-custom">
           <h1 className="heading-1 text-white mb-6">Community Support Programs</h1>
           <p className="text-xl text-primary-100 max-w-3xl">
-            Direct assistance and resources for community members in need. We're here to help connect you with essential services.
+            Direct assistance and resources for community members in need. We&apos;re here to help connect you with essential services.
           </p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function CommunitySupport() {
                 <CheckCircle className="w-6 h-6 text-primary-600 mt-0.5 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold mb-1">Assessment</h4>
-                  <p className="text-neutral-700">We'll work with you to understand your situation and identify the best resources.</p>
+                  <p className="text-neutral-700">We&apos;ll work with you to understand your situation and identify the best resources.</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -93,7 +93,7 @@ export default function CommunitySupport() {
         <div className="container-custom text-center">
           <h2 className="heading-2 mb-6">Need Support?</h2>
           <p className="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
-            We're here to help. Reach out to our team to learn more about available resources and support services.
+            We&apos;re here to help. Reach out to our team to learn more about available resources and support services.
           </p>
           <Link href="/contact" className="btn-primary">
             Contact Us

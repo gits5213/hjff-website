@@ -51,7 +51,7 @@ export default function Contact() {
             <div>
               <h2 className="heading-2 mb-8">Get in Touch</h2>
               <p className="text-body mb-8">
-                We'd love to hear from you. Whether you have questions about our programs, want to become a member, or are interested in volunteering, our team is here to help.
+                We&apos;d love to hear from you. Whether you have questions about our programs, want to become a member, or are interested in volunteering, our team is here to help.
               </p>
 
               <div className="space-y-6">
@@ -118,7 +118,7 @@ export default function Contact() {
                   <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
                   <h3 className="heading-3 text-xl mb-2">Thank You!</h3>
                   <p className="text-neutral-700">
-                    Your message has been sent. We'll get back to you as soon as possible.
+                    Your message has been sent. We&apos;ll get back to you as soon as possible.
                   </p>
                 </div>
               ) : (

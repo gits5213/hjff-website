@@ -151,7 +151,7 @@ export default function Home() {
         <div className="container-custom text-center">
           <h2 className="heading-2 text-white mb-6">Join Us in Making a Difference</h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Whether you're looking to volunteer, become a member, or partner with us, we welcome your support in building stronger communities.
+            Whether you&apos;re looking to volunteer, become a member, or partner with us, we welcome your support in building stronger communities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">

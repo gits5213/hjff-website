@@ -31,7 +31,7 @@ export default function JobTraining() {
         <div className="container-custom">
           <h1 className="heading-1 text-white mb-6">Job Training Programs</h1>
           <p className="text-xl text-primary-100 max-w-3xl">
-            Empowering community members with the skills and confidence needed to succeed in today's workforce.
+            Empowering community members with the skills and confidence needed to succeed in today&apos;s workforce.
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function JobTraining() {
               Our Job Training programs are designed to bridge the gap between job seekers and employment opportunities. We recognize that finding and securing employment requires more than just a desire to work—it requires the right skills, preparation, and support.
             </p>
             <p className="text-body">
-              Whether you're entering the workforce for the first time, looking to change careers, or re-entering after a gap, our comprehensive training programs provide the tools you need to succeed.
+              Whether you&apos;re entering the workforce for the first time, looking to change careers, or re-entering after a gap, our comprehensive training programs provide the tools you need to succeed.
             </p>
           </div>
 

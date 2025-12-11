@@ -157,7 +157,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-neutral-50 p-8 rounded-xl">
               <p className="text-body text-center">
-                Our leadership team is composed of passionate community advocates, experienced professionals, and dedicated volunteers who bring diverse expertise and shared commitment to our organization's mission. We are currently building out our leadership page with detailed profiles of our board members and key team members.
+                Our leadership team is composed of passionate community advocates, experienced professionals, and dedicated volunteers who bring diverse expertise and shared commitment to our organization&apos;s mission. We are currently building out our leadership page with detailed profiles of our board members and key team members.
               </p>
               <div className="text-center mt-6">
                 <Link href="/contact" className="btn-primary">

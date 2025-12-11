@@ -68,7 +68,7 @@ export default function Accessibility() {
             <section>
               <h2 className="heading-2 mb-4">Ongoing Efforts</h2>
               <p className="text-body">
-                We recognize that accessibility is an ongoing effort. We regularly review our website and make improvements based on user feedback, accessibility audits, and updates to accessibility standards. We are committed to maintaining and improving our website's accessibility.
+                We recognize that accessibility is an ongoing effort. We regularly review our website and make improvements based on user feedback, accessibility audits, and updates to accessibility standards. We are committed to maintaining and improving our website&apos;s accessibility.
               </p>
             </section>
 
@@ -109,7 +109,7 @@ export default function Accessibility() {
                   Phone: <a href="tel:+12125551234" className="text-primary-600 hover:underline">(212) 555-1234</a>
                 </p>
                 <p className="text-body mt-4">
-                  Please include "Accessibility" in the subject line of your email.
+                  Please include &quot;Accessibility&quot; in the subject line of your email.
                 </p>
               </div>
             </section>

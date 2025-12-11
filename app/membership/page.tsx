@@ -167,7 +167,7 @@ export default function Membership() {
                 <div>
                   <h3 className="heading-3 text-xl mb-2">Choose Your Level</h3>
                   <p className="text-body">
-                    Select the membership level that best fits your needs and budget. Our team can help you decide if you're unsure.
+                    Select the membership level that best fits your needs and budget. Our team can help you decide if you&apos;re unsure.
                   </p>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default function Membership() {
                 <div>
                   <h3 className="heading-3 text-xl mb-2">Complete Registration</h3>
                   <p className="text-body">
-                    Fill out our membership application and submit your membership fee. You'll receive a welcome packet and membership card.
+                    Fill out our membership application and submit your membership fee. You&apos;ll receive a welcome packet and membership card.
                   </p>
                 </div>
               </div>
