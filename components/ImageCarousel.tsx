@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ImageCarouselProps {
@@ -12,6 +11,18 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, autoPlay = true, autoPlayInterval = 5000 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [basePath, setBasePath] = useState('');
+
+  useEffect(() => {
+    // Get basePath from the page - it's in the HTML base tag or we can detect it
+    // For GitHub Pages, check if we're on a subdirectory
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      // If path starts with /hjff-website, use that as basePath
+      const detectedBasePath = path.startsWith('/hjff-website') ? '/hjff-website' : '';
+      setBasePath(detectedBasePath);
+    }
+  }, []);
 
   useEffect(() => {
     if (!autoPlay || images.length <= 1) return;
@@ -48,10 +59,14 @@ export default function ImageCarousel({ images, autoPlay = true, autoPlayInterva
       {/* Main Image */}
       <div className="relative w-full h-full min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
         <img
-          src={images[currentIndex]}
+          src={`${basePath}${images[currentIndex]}`}
           alt={`Image ${currentIndex + 1} of ${images.length}`}
           className="w-full h-full object-cover"
           loading={currentIndex === 0 ? 'eager' : 'lazy'}
+          onError={(e) => {
+            // Fallback if image fails to load
+            console.error('Failed to load image:', images[currentIndex]);
+          }}
         />
         
         {/* Gradient Overlay */}

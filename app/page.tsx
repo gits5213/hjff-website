@@ -4,18 +4,17 @@ import ImageCarousel from '@/components/ImageCarousel';
 
 export default function Home() {
   // Landing page images - images should be in public/images/landingPage/
-  // Using absolute paths from root (works for both dev and production with basePath)
-  const basePath = process.env.NODE_ENV === 'production' ? '/hjff-website' : '';
+  // Paths will be adjusted by ImageCarousel component for basePath
   const landingPageImages = [
-    `${basePath}/images/landingPage/picture-1.png`,
-    `${basePath}/images/landingPage/picture-2.png`,
-    `${basePath}/images/landingPage/picture-3.png`,
-    `${basePath}/images/landingPage/picture-4.png`,
-    `${basePath}/images/landingPage/picture-5.png`,
-    `${basePath}/images/landingPage/picture-6.png`,
-    `${basePath}/images/landingPage/picture-7.png`,
-    `${basePath}/images/landingPage/picture-8.png`,
-    `${basePath}/images/landingPage/picture-9.png`,
+    '/images/landingPage/picture-1.png',
+    '/images/landingPage/picture-2.png',
+    '/images/landingPage/picture-3.png',
+    '/images/landingPage/picture-4.png',
+    '/images/landingPage/picture-5.png',
+    '/images/landingPage/picture-6.png',
+    '/images/landingPage/picture-7.png',
+    '/images/landingPage/picture-8.png',
+    '/images/landingPage/picture-9.png',
     // Add more images by adding them to public/images/landingPage/ and adding the paths here
   ];
 
