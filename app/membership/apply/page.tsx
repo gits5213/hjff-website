@@ -117,18 +117,26 @@ export default function MembershipApply() {
       const submissionData = {
         ...formData,
         submittedAt: new Date().toISOString(),
+        status: 'pending_payment',
       };
       localStorage.setItem('membershipApplication', JSON.stringify(submissionData));
 
       // In production, you would send this to your backend or form service
-      // For now, we'll prepare the data and redirect to Stripe
+      // Recommended: Use Formspree, EmailJS, or backend API to capture form data
+      // Example with fetch to your form service:
+      // await fetch('YOUR_FORM_ENDPOINT', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(submissionData),
+      // });
       
       // Stripe Payment Link - replace with your actual payment link
-      // You can add custom fields in Stripe to collect additional info
+      // For different membership types, create separate payment links or use Stripe Checkout API
       const stripePaymentLink = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK || 'https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE';
       
       // Note: For production, integrate with Stripe Checkout Session API
-      // to include member information and proper amount based on membership type
+      // to include member information in metadata and proper amount based on membership type
+      // After payment success, use Stripe webhooks to automatically add member to active list
       
       // Redirect to Stripe payment
       window.location.href = stripePaymentLink;
