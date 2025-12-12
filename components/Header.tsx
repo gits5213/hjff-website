@@ -19,6 +19,7 @@ const navigation = [
   },
   { name: 'Events', href: '/events' },
   { name: 'Membership', href: '/membership' },
+  { name: 'Welfare & Support', href: '/welfare' },
   { 
     name: 'Organization', 
     href: '#',
