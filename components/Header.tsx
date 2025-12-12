@@ -96,8 +96,8 @@ export default function Header() {
                 )}
               </div>
             ))}
-            <Link href="/contact" className="btn-primary">
-              Get Involved
+            <Link href="/donate" className="btn-primary">
+              Donate
             </Link>
           </div>
 
@@ -139,11 +139,11 @@ export default function Header() {
               </div>
             ))}
             <Link
-              href="/contact"
+              href="/donate"
               className="block mt-4 btn-primary text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Get Involved
+              Donate
             </Link>
           </div>
         )}
