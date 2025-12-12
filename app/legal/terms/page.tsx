@@ -164,7 +164,7 @@ export default function TermsOfService() {
 
       <section className="section-padding bg-neutral-50">
         <div className="container-custom text-center">
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
             Contact Us with Questions
           </Link>
         </div>

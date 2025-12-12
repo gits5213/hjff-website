@@ -222,7 +222,7 @@ export default function Governance() {
             For the complete, detailed Constitution and Bylaws document, including all articles, sections, and provisions, please contact us to request a copy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
+            <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
               Request Full Bylaws
             </Link>
             <Link href="/about" className="btn-secondary border-white text-white hover:bg-white/10">
