@@ -17,7 +17,7 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   // Ensure proper chunk generation and loading
-  webpack: (config, { isServer, dev }) => {
+  webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -25,19 +25,6 @@ const nextConfig = {
         net: false,
         tls: false,
       };
-      
-      // Fix chunk loading issues in static export with basePath
-      if (!dev && config.output) {
-        const basePath = process.env.NODE_ENV === 'production' ? '/hjff-website' : '';
-        config.output.publicPath = `${basePath}/`;
-        // Ensure chunk filenames are consistent
-        if (config.output.chunkFilename) {
-          config.output.chunkFilename = config.output.chunkFilename.replace(
-            '[name]',
-            '[id]'
-          );
-        }
-      }
     }
     return config;
   },
