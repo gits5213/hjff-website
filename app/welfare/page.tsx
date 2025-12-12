@@ -19,7 +19,7 @@ export default function Welfare() {
             </div>
             <h1 className="heading-1 text-white mb-6">Welfare, Life Insurance & Bereavement Support</h1>
             <p className="text-xl md:text-2xl text-primary-100 mb-4 max-w-3xl mx-auto">
-              Official Policy — Final Modern Version (2025)
+              Official Policy
             </p>
             <p className="text-lg text-primary-200 max-w-2xl mx-auto">
               Comprehensive support system for our community members and their families during times of need
@@ -155,7 +155,7 @@ export default function Welfare() {
               </div>
               <h2 className="heading-2 mb-4">SECTION 2 — PRE-DEATH WELFARE FUND MODEL</h2>
               <p className="text-body text-lg text-neutral-600 max-w-2xl mx-auto">
-                Updated & Final Version — Comprehensive fund management system
+                Comprehensive fund management system
               </p>
             </div>
 
@@ -280,7 +280,7 @@ export default function Welfare() {
               </div>
               <h2 className="heading-2 mb-4">SECTION 3 — FUND USAGE</h2>
               <p className="text-body text-lg text-neutral-600 max-w-2xl mx-auto">
-                Updated guidelines for approved expenses and family payments
+                Guidelines for approved expenses and family payments
               </p>
             </div>
 
@@ -427,7 +427,7 @@ export default function Welfare() {
               </div>
               <h2 className="heading-2 mb-4">SECTION 5 — GROUP LIFE INSURANCE MODEL</h2>
               <p className="text-body text-lg text-neutral-600 max-w-2xl mx-auto">
-                Updated insurance enrollment and coverage guidelines
+                Insurance enrollment and coverage guidelines
               </p>
             </div>
 
@@ -487,7 +487,7 @@ export default function Welfare() {
               </div>
               <h2 className="heading-2 mb-4">SECTION 6 — MEMBERSHIP CONTINUITY AFTER DEATH</h2>
               <p className="text-body text-lg text-neutral-600 max-w-2xl mx-auto">
-                Updated guidelines for family members continuing membership
+                Guidelines for family members continuing membership
               </p>
             </div>
 
@@ -656,7 +656,7 @@ export default function Welfare() {
               </div>
               <h2 className="heading-2 mb-4">VISUAL DIAGRAMS</h2>
               <p className="text-body text-lg text-neutral-600 max-w-2xl mx-auto">
-                Text Version — Ready to convert into PNG or graphic versions
+                Full Workflows
               </p>
             </div>
 
