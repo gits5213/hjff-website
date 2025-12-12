@@ -135,7 +135,7 @@ export default function Membership() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
 
       {/* Membership Levels */}
       <section className="section-padding bg-neutral-50">
@@ -201,11 +201,11 @@ export default function Membership() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
+              </div>
+            </div>
+        </section>
 
-      {/* How to Join */}
+        {/* How to Join */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
@@ -251,18 +251,18 @@ export default function Membership() {
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-10 h-10 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
                   4
-                </div>
-                <div>
+              </div>
+              <div>
                   <h3 className="heading-3 text-xl mb-2">Get Involved</h3>
                   <p className="text-body">
                     Start attending events, join committees, and make a difference in your community!
-                  </p>
-                </div>
+                </p>
+              </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
       {/* CTA Section */}
       <section className="section-padding bg-primary-600 text-white">
@@ -274,7 +274,7 @@ export default function Membership() {
           <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
             Become a Member
           </Link>
-        </div>
+      </div>
       </section>
     </div>
   );

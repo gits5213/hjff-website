@@ -9,25 +9,6 @@ const nextConfig = {
   basePath: process.env.NODE_ENV === 'production' ? '/hjff-website' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/hjff-website' : '',
   trailingSlash: true,
-  // Disable static optimization warnings for better chunk handling
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-  typescript: {
-    ignoreBuildErrors: false,
-  },
-  // Ensure proper chunk generation and loading
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-    return config;
-  },
 };
 
 export default nextConfig;

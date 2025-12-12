@@ -1,12 +1,8 @@
-'use client';
-
 import Link from 'next/link';
 import { Shield, Users, GraduationCap, Calendar, Heart, Handshake, BookOpen, Briefcase } from 'lucide-react';
 import ImageCarousel from '@/components/ImageCarousel';
-import { useLanguage } from '@/components/LanguageProvider';
 
 export default function Home() {
-  const { t } = useLanguage();
   // Landing page images - images should be in public/images/landingPage/
   // Paths will be adjusted by ImageCarousel component for basePath
   const landingPageImages = [
@@ -25,49 +21,49 @@ export default function Home() {
   const coreValues = [
     {
       icon: Shield,
-      title: t('home.coreValues.awareness.title'),
-      description: t('home.coreValues.awareness.description'),
+      title: 'Create Awareness',
+      description: 'Create awareness among the community concerning their safety, social and constitutional rights.',
     },
     {
       icon: Handshake,
-      title: t('home.coreValues.collaboration.title'),
-      description: t('home.coreValues.collaboration.description'),
+      title: 'Government Collaboration',
+      description: 'Work with government agencies, community-based organizations and elected officials to resolve community issues.',
     },
     {
       icon: Heart,
-      title: t('home.coreValues.quality.title'),
-      description: t('home.coreValues.quality.description'),
+      title: 'Quality of Life',
+      description: 'Support initiatives and programs to improve the quality of life for residents in New York State.',
     },
     {
       icon: Users,
-      title: t('home.coreValues.engagement.title'),
-      description: t('home.coreValues.engagement.description'),
+      title: 'Community Engagement',
+      description: 'Engage in multicultural events, educational programs, job training, and social services.',
     },
   ];
 
   const programs = [
     {
       icon: GraduationCap,
-      title: t('home.programs.education.title'),
-      description: t('home.programs.education.description'),
+      title: 'Educational Seminars',
+      description: 'Comprehensive educational programs covering rights, safety, and civic engagement.',
       href: '/programs/education',
     },
     {
       icon: Briefcase,
-      title: t('home.programs.jobTraining.title'),
-      description: t('home.programs.jobTraining.description'),
+      title: 'Job Training',
+      description: 'Professional development and skills training to empower community members.',
       href: '/programs/job-training',
     },
     {
       icon: Heart,
-      title: t('home.programs.socialServices.title'),
-      description: t('home.programs.socialServices.description'),
+      title: 'Social Services',
+      description: 'Support services to help individuals and families navigate challenges.',
       href: '/programs/social-services',
     },
     {
       icon: Users,
-      title: t('home.programs.community.title'),
-      description: t('home.programs.community.description'),
+      title: 'Community Support',
+      description: 'Direct assistance and resources for community members in need.',
       href: '/programs/community',
     },
   ];
@@ -82,23 +78,26 @@ export default function Home() {
             {/* Left Side - Content */}
             <div>
               <h1 className="heading-1 text-white mb-6">
-                {t('home.heroTitle')}
+                Building Stronger Communities Together
               </h1>
               <p className="text-xl md:text-2xl text-primary-100 mb-6 leading-relaxed">
-                {t('home.heroDescription')}
+                A charitable, cultural, educational, social and not-for-profit organization incorporated in Queens County, New York, dedicated to creating awareness about safety, social and constitutional rights while improving quality of life for residents of New York State.
               </p>
               <p className="text-2xl md:text-3xl font-display font-semibold text-white mb-8">
-                &quot;{t('common.slogan')}&quot;
+                &quot;ONE TEAM ONE DREAM&quot;
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
-                  {t('common.joinUs')}
+                  Join Us
                 </Link>
                 <Link href="/donate" className="bg-transparent border-2 border-accent-400 text-white hover:bg-accent-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-                  {t('common.donate')}
+                  Donate
                 </Link>
                 <Link href="/about" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
-                  {t('common.learnMore')}
+                  Learn More
+                </Link>
+                <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
+                  Contact
                 </Link>
               </div>
             </div>
@@ -115,26 +114,26 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="heading-2 mb-6">{t('home.missionTitle')}</h2>
+            <h2 className="heading-2 mb-6">Our Mission</h2>
             <p className="text-body text-lg mb-4">
-              {t('home.missionIntro')}
+              HOLLIS JAMAICA FRIENDS AND FAMILY INC. is a socio-economic and community development organization. Our mission includes:
             </p>
             <ul className="text-left space-y-3 text-body max-w-3xl mx-auto">
               <li className="flex items-start space-x-3">
                 <span className="text-primary-600 font-bold mt-1">•</span>
-                <span>{t('home.mission1')}</span>
+                <span>Create awareness among the community and community at large concerning their safety, social and constitutional rights</span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-primary-600 font-bold mt-1">•</span>
-                <span>{t('home.mission2')}</span>
+                <span>Work with various government agencies, community-based organizations and elected officials to communicate and resolve issues and concerns of the people living in the community</span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-primary-600 font-bold mt-1">•</span>
-                <span>{t('home.mission3')}</span>
+                <span>Act as an umbrella organization to create, support, sponsor initiatives and programs to help improve the quality of life for residents living in the State of New York</span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-primary-600 font-bold mt-1">•</span>
-                <span>{t('home.mission4')}</span>
+                <span>Engage in multicultural events, seminars, educational programs, job training programs and provide other social services to the community</span>
               </li>
             </ul>
           </div>
@@ -160,9 +159,9 @@ export default function Home() {
       <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-2 mb-6">{t('home.programsTitle')}</h2>
+            <h2 className="heading-2 mb-6">Our Programs</h2>
             <p className="text-body text-lg">
-              {t('home.programsDescription')}
+              We offer a comprehensive range of programs designed to support, educate, and empower our community members.
             </p>
           </div>
 
@@ -192,7 +191,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link href="/programs" className="btn-primary">
-              {t('common.viewAll')} {t('nav.programs')}
+              View All Programs
             </Link>
           </div>
         </div>
@@ -201,16 +200,16 @@ export default function Home() {
       {/* CTA Section */}
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
-          <h2 className="heading-2 text-white mb-6">{t('home.ctaTitle')}</h2>
+          <h2 className="heading-2 text-white mb-6">Join Us in Making a Difference</h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            {t('home.ctaDescription')}
+            Whether you&apos;re looking to volunteer, become a member, or partner with us, we welcome your support in building stronger communities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/membership" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
-              {t('common.becomeMember')}
+              Become a Member
             </Link>
             <Link href="/contact" className="btn-secondary border-white text-white hover:bg-white/10">
-              {t('common.contactUs')}
+              Contact Us
             </Link>
           </div>
         </div>

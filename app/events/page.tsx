@@ -125,7 +125,7 @@ export default function Events() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
 
       {/* Past Events */}
       <section className="section-padding bg-neutral-50">
@@ -144,8 +144,8 @@ export default function Events() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
 
       {/* CTA Section */}
       <section className="section-padding bg-primary-600 text-white">
@@ -153,12 +153,12 @@ export default function Events() {
           <h2 className="heading-2 text-white mb-6">Stay Updated</h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
             Want to be notified about upcoming events? Contact us to join our mailing list or follow us on social media.
-          </p>
+            </p>
           <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
             Get In Touch
-          </Link>
-        </div>
-      </section>
+            </Link>
+          </div>
+        </section>
     </div>
   );
 }
