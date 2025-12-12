@@ -30,7 +30,6 @@ const navigation = [
       { name: 'Photo Gallery', href: '/gallery' },
     ]
   },
-  { name: 'Donate', href: '/donate' },
 ];
 
 export default function Header() {
