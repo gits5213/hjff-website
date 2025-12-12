@@ -198,7 +198,7 @@ export default function ExecutiveBoard() {
             <p className="text-xl text-primary-100 mb-8">
               Our current Executive Board members are dedicated community leaders working to advance our mission. Board member profiles and contact information will be available soon.
             </p>
-            <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
+            <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
               Contact the Board
             </Link>
           </div>

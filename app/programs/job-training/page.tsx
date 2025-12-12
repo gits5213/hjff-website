@@ -90,7 +90,7 @@ export default function JobTraining() {
           <p className="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
             Join our job training programs and take the next step toward your professional goals.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
             Get Started
           </Link>
         </div>

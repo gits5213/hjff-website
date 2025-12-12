@@ -177,7 +177,7 @@ export default function SteeringCommittee() {
           <p className="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
             Our Steering Committee members are dedicated to ensuring the organization's continued success. Committee member information will be available soon.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
             Contact Us
           </Link>
         </div>

@@ -95,7 +95,7 @@ export default function CommunitySupport() {
           <p className="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
             We&apos;re here to help. Reach out to our team to learn more about available resources and support services.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
             Contact Us
           </Link>
         </div>

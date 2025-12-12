@@ -181,7 +181,7 @@ export default function About() {
                 Our leadership team is composed of passionate community advocates, experienced professionals, and dedicated volunteers who bring diverse expertise and shared commitment to our organization&apos;s mission. We are currently building out our leadership page with detailed profiles of our board members and key team members.
               </p>
               <div className="text-center mt-6">
-                <Link href="/contact" className="btn-primary">
+                <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
                   Contact Our Leadership
                 </Link>
               </div>
@@ -201,7 +201,7 @@ export default function About() {
             <Link href="/membership" className="btn-primary">
               Become a Member
             </Link>
-            <Link href="/contact" className="btn-secondary">
+            <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
               Contact Us
             </Link>
           </div>

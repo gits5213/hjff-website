@@ -271,7 +271,7 @@ export default function Membership() {
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
             Become a member today and help us build stronger, more empowered communities in New York.
           </p>
-          <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
             Become a Member
           </Link>
       </div>

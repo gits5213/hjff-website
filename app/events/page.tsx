@@ -116,7 +116,7 @@ export default function Events() {
                     </div>
                   </div>
                   <div className="lg:ml-8">
-                    <Link href="/contact" className="btn-primary whitespace-nowrap">
+                    <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg whitespace-nowrap">
                       Register
                     </Link>
                   </div>
@@ -154,7 +154,7 @@ export default function Events() {
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
             Want to be notified about upcoming events? Contact us to join our mailing list or follow us on social media.
             </p>
-          <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-neutral-100">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-white hover:bg-primary-500/20 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
             Get In Touch
             </Link>
           </div>

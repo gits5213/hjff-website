@@ -95,7 +95,7 @@ export default function SocialServices() {
           <p className="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
             Our social services team is here to help. Reach out to learn more about available services and how we can assist you.
           </p>
-          <Link href="/contact" className="btn-primary inline-flex items-center space-x-2">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg inline-flex items-center space-x-2">
             <span>Contact Our Team</span>
             <ArrowRight className="w-5 h-5" />
           </Link>

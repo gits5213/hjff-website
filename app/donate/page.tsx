@@ -218,7 +218,7 @@ export default function Donate() {
           <p className="text-xl text-neutral-700 mb-8 max-w-2xl mx-auto">
             We're here to help. Contact us if you have any questions about making a donation or would like to discuss other ways to support our mission.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact" className="bg-transparent border-2 border-primary-300 text-primary-600 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
             Contact Us
           </Link>
         </div>
