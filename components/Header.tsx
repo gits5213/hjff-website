@@ -19,7 +19,13 @@ const navigation = [
   },
   { name: 'Events', href: '/events' },
   { name: 'Membership', href: '/membership' },
-  { name: 'Welfare & Support', href: '/welfare' },
+  { 
+    name: 'Welfare & Support', 
+    href: '/welfare',
+    submenu: [
+      { name: 'Graveyard Purchased List', href: '/welfare/graveyard-purchased-list' },
+    ]
+  },
   { 
     name: 'Organization', 
     href: '#',
